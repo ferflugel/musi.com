@@ -7,7 +7,7 @@
 </head>
 <body>
     <div><p id="musicID" class="musicName" style="display: none;">Music Name</p></div>
-    <div id="rateForm" class="colorBar" style="display: none;">
+    <div id="rateForm" class="colorBar" name="5" style="display: none;">
         <input type="radio" id="one" name="One" value="1" onclick="updateVal('1')">
         <label for="one"></label>
 
@@ -22,10 +22,13 @@
 
         <input type="radio" id="five" name="One" value="5" onclick="updateVal('1')">
         <label for="five"></label>
-
     </div>
 
     <div id="container"></div>
+
+    <div>
+      <p id="OverallScore">Album Average Score: </p>
+    </div>
     <script type="text/javascript" src="test.js"></script>
 </body>
 </html>
