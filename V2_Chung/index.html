@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spotify Rating</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="musicPage">
+      <!-- Background video -->
+      <video autoplay loop>
+        <source src="vid.mp4" type="video/mp4">
+      </video>
+
+      <!-- Album cover -->
+      <img class="capaAlbum" src="capa.png" alt="Album cover">
+
+      <!-- Rating system -->
+      <div id="rateForm" class="colorBar" name="5">
+          <input type="radio" id="one" name="One" value="5" onclick="updateVal('1')">
+          <label for="one"></label>
+
+          <input type="radio" id="two" name="One" value="4" onclick="updateVal('1')">
+          <label for="two"></label>
+
+          <input type="radio" id="three" name="One" value="3" onclick="updateVal('1')">
+          <label for="three"></label>
+
+          <input type="radio" id="four" name="One" value="2" onclick="updateVal('1')">
+          <label for="four"></label>
+
+          <input type="radio" id="five" name="One" value="1" onclick="updateVal('1')">
+          <label for="five"></label>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="script.js"></script>
+</html>

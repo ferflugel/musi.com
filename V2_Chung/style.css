@@ -1,0 +1,74 @@
+body {
+  overflow: hidden;
+}
+
+.musicPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: 0;
+}
+
+.musicPage video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  /* Change position to absolute if you don't want it to take up the whole page */
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+
+  /* Filters */
+  filter: brightness(0.3);
+}
+
+.musicPage .capaAlbum {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 25vw;
+  top: 50vh;
+  box-shadow: 0px 0px 30px 10px;
+  border-radius: 5px;
+}
+
+
+
+.colorBar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 70vw;
+  top: 50vh;
+  width: 30%;
+  display: inline;
+}
+
+.colorBar input[type="radio"] {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.colorBar label{
+  display: block;
+  background-color: rgba(200,200,200,0.8);
+  margin: 8px;
+  border-radius: 10px;
+  padding: 16px 0px;
+  border: 0;
+  height: 10px;
+}
+
+.colorBar input[type="radio"]:checked ~ label {
+    background-color: rgba(0,204,125,0.9);
+}
+
+.colorBar input[type="radio"]:checked + label {
+    background-color: rgba(0,204,125,0.9);
+}
+
+.colorBar input[type="radio"]:hover + label {
+    background-color: rgba(0, 255, 156, 0.9);
+}
