@@ -34,6 +34,7 @@ body {
 }
 
 
+
 .colorBar {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -51,20 +52,5 @@ body {
   padding: 16px 0px;
   border: 0;
   height: 10px;
-}
-
-.colorBar input[type="radio"]:checked ~ label {
-    background-color: rgba(0,204,125,0.9);
-}
-
-.colorBar input[type="radio"]:checked + label {
-    background-color: rgba(0,204,125,0.9);
-}
-
-.colorBar .rateButtton:hover {
-    background-color: rgba(0, 255, 156, 0.9) !important;
-}
-
-.colorBar input[type="radio"]:hover ~ label {
-    background-color: rgba(0, 255, 156, 0.9);
+  transition: background-color 100ms linear;
 }

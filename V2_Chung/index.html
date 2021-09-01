@@ -10,7 +10,7 @@
     <div class="musicPage">
 
       <!-- Background video -->
-      <video id="video" playsinline muted autoplay loop>
+      <video id="video" muted autoplay loop>
         <source src="vid.mp4" type="video/mp4">
       </video>
 
@@ -18,18 +18,15 @@
       <img class="capaAlbum" src="capa.png" alt="Album cover">
 
       <!-- Rating system -->
-      <div id="rateForm" class="colorBar">
+      <div id="rateForm" class="colorBar" onmouseout="resetCSS()">
           <!-- Each of these divs is one rating button -->
-          <div class="rateButtton" id="4" onclick="updateVal('4')"></div>
-          <div class="rateButtton" id="3" onclick="updateVal('3')"></div>
-          <div class="rateButtton" id="2" onclick="updateVal('2')"></div>
-          <div class="rateButtton" id="1" onclick="updateVal('1')"></div>
-          <div class="rateButtton" id="0" onclick="updateVal('0')"></div>
+          <div class="rateButtton" id="4" onmouseover="hoveringEffect('4')" onclick="updateVal('4')"></div>
+          <div class="rateButtton" id="3" onmouseover="hoveringEffect('3')" onclick="updateVal('3')"></div>
+          <div class="rateButtton" id="2" onmouseover="hoveringEffect('2')" onclick="updateVal('2')"></div>
+          <div class="rateButtton" id="1" onmouseover="hoveringEffect('1')" onclick="updateVal('1')"></div>
+          <div class="rateButtton" id="0" onmouseover="hoveringEffect('0')" onclick="updateVal('0')"></div>
       </div>
     </div>
   </body>
-  <script>
-    document.getElementById('video').play();
-  </script>
   <script type="text/javascript" src="script.js"></script>
 </html>
