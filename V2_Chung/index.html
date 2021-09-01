@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Spotify Rating</title>
     <link rel="stylesheet" href="style.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="musicPage">
@@ -17,21 +17,13 @@
       <img class="capaAlbum" src="capa.png" alt="Album cover">
 
       <!-- Rating system -->
-      <div id="rateForm" class="colorBar" name="5">
-          <input type="radio" id="one" name="One" value="5" onclick="updateVal('1')">
-          <label for="one"></label>
-
-          <input type="radio" id="two" name="One" value="4" onclick="updateVal('1')">
-          <label for="two"></label>
-
-          <input type="radio" id="three" name="One" value="3" onclick="updateVal('1')">
-          <label for="three"></label>
-
-          <input type="radio" id="four" name="One" value="2" onclick="updateVal('1')">
-          <label for="four"></label>
-
-          <input type="radio" id="five" name="One" value="1" onclick="updateVal('1')">
-          <label for="five"></label>
+      <div id="rateForm" class="colorBar">
+          <!-- Each of these divs is one rating button -->
+          <div class="rateButtton" id="4" onclick="updateVal('4')"></div>
+          <div class="rateButtton" id="3" onclick="updateVal('3')"></div>
+          <div class="rateButtton" id="2" onclick="updateVal('2')"></div>
+          <div class="rateButtton" id="1" onclick="updateVal('1')"></div>
+          <div class="rateButtton" id="0" onclick="updateVal('0')"></div>
       </div>
     </div>
   </body>
