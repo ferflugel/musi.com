@@ -10,9 +10,12 @@
     <div class="musicPage">
 
       <!-- Background video -->
-      <video autoplay loop>
+      <video id="video" autoplay loop>
         <source src="vid.mp4" type="video/mp4">
       </video>
+      <script>
+        document.getElementById('video').play();
+      </script>
 
       <!-- Album cover -->
       <img class="capaAlbum" src="capa.png" alt="Album cover">
