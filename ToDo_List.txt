@@ -1,0 +1,3 @@
+ - Monetization idea - ads after album rating
+ - Database to collect data --> best rated album, band, etc.
+ - 
