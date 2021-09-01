@@ -3,6 +3,7 @@ document.getElementsByClassName('musicPage')[0].children[0].addEventListener('lo
   this.currentTime = 57;
 }, false);
 
+// Hover effect on rating buttons
 function hoveringEffect(id) {
   let temp = [ 0,   0,   0,   0,   0];
   for(let i = 0; i <= parseInt(id); i++) {
