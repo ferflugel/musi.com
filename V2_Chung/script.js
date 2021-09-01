@@ -2,8 +2,6 @@ document.getElementsByClassName('musicPage')[0].children[0].addEventListener('lo
   this.currentTime = 57;
 }, false);
 
-
-
 function updateVal(id) {
   let arr = [ 0,   0,   0,   0,   0];
   for(let i = 0; i <= parseInt(id); i++) {
@@ -20,6 +18,5 @@ function updateVal(id) {
     }
   }
   console.log(arr);
-
 
 }
