@@ -16,8 +16,8 @@ body {
   object-fit: cover;
   position: fixed;
   /* Change position to absolute if you don't want it to take up the whole page */
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   z-index: -1;
 
   /* Filters */
@@ -29,7 +29,7 @@ body {
   transform: translate(-50%, -50%);
   left: 25vw;
   top: 50vh;
-  box-shadow: 0px 0px 30px 10px;
+  box-shadow: 0 0 30px 10px;
   border-radius: 5px;
 }
 
@@ -63,4 +63,8 @@ body {
 
 .colorBar .rateButtton:hover {
     background-color: rgba(0, 255, 156, 0.9) !important;
+}
+
+.colorBar input[type="radio"]:hover ~ label {
+    background-color: rgba(0, 255, 156, 0.9);
 }
