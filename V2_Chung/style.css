@@ -6,11 +6,10 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  text-align: center;
   font-size: medium;
 }
 
-#video {
+.video {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -60,7 +59,7 @@ body {
   text-align: center;
 }
 
-#musicName {
+.musicName {
   font-size: xxx-large;
   text-align: left;
   color: white;
@@ -69,7 +68,7 @@ body {
   margin: 0;
 }
 
-#musicArtist{
+.musicArtist{
   font-size: large;
   text-align: left;
   color: white;
@@ -155,4 +154,3 @@ body {
   margin-left: 61vh;
   color: white;
 }
-

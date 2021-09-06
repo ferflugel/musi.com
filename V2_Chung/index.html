@@ -4,24 +4,30 @@
     <meta charset="utf-8">
     <title>Spotify Rating</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://css.gg/css?=|play-track-next-o|play-track-prev-o" rel="stylesheet">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   </head>
   <body>
-    <div class="musicPage">
 
+    <div class="musicPage" name="Active">
       <!-- Background video -->
-      <video id="video" playsinline muted autoplay loop>
-        <source src="vid.mp4" type="video/mp4">
+      <video class="video" playsinline muted autoplay loop>
+        <source src="The Weeknd - Starboy.mp4" type="video/mp4">
       </video>
 
-      <!-- Album cover -->
-      <img class="capaAlbum" src="capa.png" alt="Album cover">
+      <!-- Previous song button -->
+      <div class="Button" id="prev">
+        <i class="gg-play-track-prev-o"></i>
+      </div>
 
-      <!-- Rating system -->
-      <div id="rateForm" class="colorBar" onmouseout="resetCSS()" name="0">
+      <!-- Album cover -->
+      <img class="capaAlbum" src="Starboy.png" alt="Album cover">
+
+      <!-- Rating music 1 -->
+      <div class="colorBar" onmouseout="resetCSS()" name="0">
           <!-- Each of these divs is one rating button -->
-          <p id="musicName">Starboy</p>
-          <p id="musicArtist">The Weeknd ft. Daft Punk</p>
+          <p class="musicName">Starboy</p>
+          <p class="musicArtist">The Weeknd ft. Daft Punk</p>
           <div class="rateButton" id="4" onmouseover="hoveringEffect('4')" onclick="updateVal('4')"></div>
           <div class="rateButton" id="3" onmouseover="hoveringEffect('3')" onclick="updateVal('3')"></div>
           <div class="rateButton" id="2" onmouseover="hoveringEffect('2')" onclick="updateVal('2')"></div>
@@ -29,10 +35,59 @@
           <div class="rateButton" id="0" onmouseover="hoveringEffect('0')" onclick="updateVal('0')"></div>
       </div>
 
+      <!-- Next song button -->
+      <div class="Button" id="next">
+        <i class="gg-play-track-next-o"></i>
+      </div>
+
+    </div>
+
+
+    <div class="musicPage">
+      <!-- Background video -->
+      <video class="video" playsinline muted autoplay loop>
+        <source src="The Weeknd - I Feel It Coming ft. Daft Punk (Official Video).mp4" type="video/mp4">
+      </video>
+
+      <!-- Album cover -->
+      <img class="capaAlbum" src="IFeelItComing.jpg" alt="Album cover">
+
+      <!-- Rating music 1 -->
+      <div class="colorBar" onmouseout="resetCSS()" name="0">
+          <!-- Each of these divs is one rating button -->
+          <p class="musicName">I Feel It Coming</p>
+          <p class="musicArtist">The Weeknd ft. Daft Punk</p>
+          <div class="rateButton" id="4" onmouseover="hoveringEffect('4')" onclick="updateVal('4')"></div>
+          <div class="rateButton" id="3" onmouseover="hoveringEffect('3')" onclick="updateVal('3')"></div>
+          <div class="rateButton" id="2" onmouseover="hoveringEffect('2')" onclick="updateVal('2')"></div>
+          <div class="rateButton" id="1" onmouseover="hoveringEffect('1')" onclick="updateVal('1')"></div>
+          <div class="rateButton" id="0" onmouseover="hoveringEffect('0')" onclick="updateVal('0')"></div>
+      </div>
+    </div>
+
+
+    <div class="musicPage">
+      <!-- Background video -->
+      <video class="video" playsinline muted autoplay loop>
+        <source src="The Weeknd - Reminder (Official Video).mp4" type="video/mp4">
+      </video>
+
+      <!-- Album cover -->
+      <img class="capaAlbum" src="Reminder.jpg" alt="Album cover">
+
+      <!-- Rating music 1 -->
+      <div class="colorBar" onmouseout="resetCSS()" name="0">
+          <!-- Each of these divs is one rating button -->
+          <p class="musicName">Reminder</p>
+          <p class="musicArtist">The Weeknd</p>
+          <div class="rateButton" id="4" onmouseover="hoveringEffect('4')" onclick="updateVal('4')"></div>
+          <div class="rateButton" id="3" onmouseover="hoveringEffect('3')" onclick="updateVal('3')"></div>
+          <div class="rateButton" id="2" onmouseover="hoveringEffect('2')" onclick="updateVal('2')"></div>
+          <div class="rateButton" id="1" onmouseover="hoveringEffect('1')" onclick="updateVal('1')"></div>
+          <div class="rateButton" id="0" onmouseover="hoveringEffect('0')" onclick="updateVal('0')"></div>
+      </div>
     </div>
 
   </body>
   <script type="text/javascript" src="script.js"></script>
 </html>
-
-

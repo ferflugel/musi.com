@@ -1,3 +1,12 @@
+const p = document.getElementsByClassName('musicPage');
+Array.prototype.forEach.call(p, elem => {
+  if(elem.getAttribute('name') != "Active") {
+    elem.style.display = 'none';
+  }
+});
+
+
+
 // Sets the start time of the video
 document.getElementsByClassName('musicPage')[0].children[0].addEventListener('loadedmetadata', function() {
   this.currentTime = 57;
