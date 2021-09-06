@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Spotify Rating</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="results_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -11,7 +11,7 @@
 
         <!-- Background video -->
         <video id="video" playsinline muted autoplay loop>
-            <source src="vid.mp4" type="video/mp4">
+            <source src="../vid.mp4" type="video/mp4">
         </video>
 
         <!-- Text for results -->
@@ -22,16 +22,14 @@
         </div>
 
         <!-- Results for user -->
-        <div class="resultsData">
-            <div class="resultBar" id="bar1">Starboy</div>
-            <div class="resultBar" id="bar2">Reminder</div>
-            <div class="resultBar" id="bar3">Stargirl Interlude</div>
-            <p id="bottomText">Entre 18 músicas avaliadas<p>
+        <div class="resultsDataVertical">
+            <div class="resultBarVertical" id="bar2_1"></div>
+            <div class="resultBarVertical" id="bar2_2"></div>
+            <div class="resultBarVertical" id="bar2_3"></div>
         </div>
 
     </div>
 
   </body>
-  <script type="text/javascript" src="script.js"></script>
 </html>
 

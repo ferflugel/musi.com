@@ -1,0 +1,195 @@
+body {
+  overflow: hidden;
+}
+
+.musicPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: medium;
+}
+
+#video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  /* Change position to absolute if you don't want it to take up the whole page */
+  left: 0;
+  top: 0;
+  z-index: -1;
+
+  /* Filters */
+  filter: brightness(0.3);
+}
+
+.musicPage .capaAlbum {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 25vw;
+  top: 50vh;
+  box-shadow: 0 0 30px 10px;
+  border-radius: 5px;
+}
+
+.colorBar {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 65vw;
+  top: 50vh;
+  width: 26%;
+  display: inline;
+}
+
+.colorBar .rateButton {
+  display: block;
+  background-color: rgba(200,200,200,0.3);
+  margin: 8px 0 0 0;
+  border-radius: 10px;
+  padding: 16px 0;
+  border: 0;
+  height: 12px;
+  transition: background-color 100ms linear;
+}
+
+.resultsPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+
+#musicName {
+  font-size: xxx-large;
+  text-align: left;
+  color: white;
+  font-family: Trebuchet MS, Calibri, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+#musicArtist{
+  font-size: large;
+  text-align: left;
+  color: white;
+  font-family: Trebuchet MS, Calibri, sans-serif;
+  margin: 0.5vh 0 1vh;
+}
+
+
+.resultsPage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: medium;
+  font-family: Trebuchet MS, Calibri, sans-serif;
+}
+
+.resultsText {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 32vw;
+  top: 45vh;
+}
+
+#line1{
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  margin: 0.5vh 0 1vh;
+}
+
+#line2{
+  font-size: 80px;
+  text-align: left;
+  color: white;
+  margin: 0.5vh 0 1vh;
+}
+
+#line3{
+  font-size: 80px;
+  text-align: left;
+  color: #38ef7d;
+  margin: 0.5vh 5vw 1vh;
+}
+
+.resultsData {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 80vw;
+  top: 45vh;
+  width: 55vw;
+  display: inline;
+  text-align: left;
+}
+
+.resultBar {
+  display: block;
+  background-color: rgba(200,200,200,0.3);
+  margin: 8px 0 0;
+  border-radius: 10px;
+  padding: 25px 0;
+  border: 0;
+  height: 12px;
+  text-indent: 1.5vw;
+}
+
+#bar1 {
+  background-color: #ff2251;
+  margin: 8px 0 0;
+}
+
+#bar2 {
+  background-color: #ff9966;
+  margin: 8px 30px 0;
+}
+
+#bar3 {
+  background-color: #ffd166;
+  margin: 8px 60px 0;
+}
+
+#bottomText {
+  margin-top: 12px;
+  margin-left: 61vh;
+  color: white;
+}
+
+.resultsDataVertical {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 80vw;
+  top: 45vh;
+  width: 60vw;
+  display: flex;
+  text-align: left;
+}
+
+.resultBarVertical {
+  display: block;
+  background-color: rgba(200,200,200,0.3);
+  margin: 0 0 0;
+  border-radius: 10px;
+  padding: 25px 0;
+  border: 0;
+  height: 35vh;
+  width: 10vw;
+  text-indent: 1.5vw;
+}
+
+#bar2_1 {
+  background-color: #ff2251;
+  margin: 8px 30px 0;
+}
+
+#bar2_2 {
+  background-color: #ff9966;
+  margin: 8px 30px 0;
+}
+
+#bar2_3 {
+  background-color: #ffd166;
+  margin: 8px 30px 0;
+}
