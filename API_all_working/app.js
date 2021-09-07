@@ -102,10 +102,6 @@ storeToken(value) {
 }
 })();
 
-
-
-
-
 //Control the App's functions
 const APPController = (function(UICtrl, APICtrl) {
 
@@ -167,7 +163,6 @@ const beginapp = async () => {
 
 
     });
-  
 
     return {
         init() {

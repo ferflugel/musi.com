@@ -11,8 +11,8 @@ body {
 }
 
 #video {
-  width: 100vw;
-  height: 100vh;
+  width: 130vw;
+  height: 130vh;
   object-fit: cover;
   position: fixed;
   /* Change position to absolute if you don't want it to take up the whole page */
@@ -250,7 +250,7 @@ body {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 10vw;
-  top: 77vh;
+  top: 72vh;
   width: 55vw;
   display: inline;
   text-align: right;
