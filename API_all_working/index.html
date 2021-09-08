@@ -14,14 +14,13 @@
         <img src="Images/music2.png" id="image_display" alt="album cover">
     </div>
 
-    <div class="container">
+    <div class="formContainer">
         <form action="">
             <input type="hidden" id='hidden_token'>
 	        <input type="hidden" id='searchquery'>
-            <label><input type="text" placeholder="Album Name" id='searchbox'></label>
-            <div class="col-sm-6 form-group row px-0"></div>
-            <div class="col-sm-6 row form-group px-0">
-                <button type="submit" id="btn_submit" class="btn btn-success col-sm-12">View Songs on Album</button>
+            <label><input type="text" placeholder="Album Name" id='searchBox'></label>
+            <div id="submitButton">
+                <button type="submit" id="btn_submit" class="btn btn-success">Search album</button>
             </div>
         </form>
     </div>

@@ -121,7 +121,7 @@ const beginapp = async () => {
 	const token = UICtrl.getStoredToken().token;
 	console.log(token);
 
-	var searchTerms = document.getElementById('searchbox').value;
+	var searchTerms = document.getElementById('searchBox').value;
 	console.log(searchTerms);
 
 	const searchresults = await APICtrl.searchforalbumsmethod(token, searchTerms);
