@@ -39,6 +39,25 @@ body {
   left: 96.5%;
 }
 
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  background-color: blue;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(130deg);
+  -webkit-transform: rotate(130deg);
+}
+
+.left {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+
 .gg-play-track-next-o {
     box-sizing: border-box;
     position: relative;

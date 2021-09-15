@@ -5,14 +5,34 @@
   --gray: #9b9b9b;
 }
 
-form {
-  position: relative;
-  padding: 15px 0 0;
-  margin-top: 10px;
-  width: 50%;
+.formContainer {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 30vh;
+    left: 50%;
+    top: 70%;
 }
 
-#inputAlbum {
+
+#image_display {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 55vh;
+    border-radius: 10px;
+    height: 55vh;
+    left: 50%;
+    top: 60%;
+    box-shadow: 0px 4px 8px 0px black;
+}
+
+
+
+#searchBox {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  top: 35%;
+  left: 50%;
   font-family: inherit;
   width: 100%;
   border: 0;
@@ -21,33 +41,16 @@ form {
   font-size: 1.3rem;
   color: var(--white);
   padding: 7px 0;
+  text-align: center;
   background: transparent;
   transition: border-color 0.2s;
-
-
-
 }
 
-#inputAlbum::placeholder {
+#searchBox::placeholder {
   color: transparent;
 }
 
-#inputAlbum:placeholder-shown ~ label {
-  font-size: 1.3rem;
-  cursor: text;
-  top: 20px;
-}
-
-label {
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 1rem;
-  color: var(--gray);
-}
-
-#inputAlbum:focus {
+#searchBox:focus, #searchBox:hover {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
@@ -55,9 +58,27 @@ label {
   border-image-slice: 1;
 }
 
-#inputAlbum:focus ~ .form_label {
+.form_label {
+  position: absolute;
+  transform: translate(-50%, 100%);
+  left: 50%;
+  top: 20%;
+  display: block;
+  text-align: center;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--gray);
+}
+
+#searchBox:placeholder-shown ~ label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 30%;
+}
+
+#searchBox:focus ~ .form_label {
     position: absolute;
-    top: 0;
+    top: 20%;
     display: block;
     transition: 0.2s;
     font-size: 1rem;
@@ -66,9 +87,32 @@ label {
 }
 
 /* reset input */
-#inputAlbum{
+#searchBox{
   &:required,&:invalid { box-shadow:none; }
 }
+
+#btn_submit {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  background-color: rgb(20, 150, 90);
+  border: solid transparent;
+  border-radius: 10px;
+  box-shadow: 2px 4px 9px 0px rgb(10,10,10);
+  transition: 0.07s;
+  color: white;
+  width: 130px;
+  height: 30px;
+  left: 50%;
+  font-size: 18px;
+  bottom: 25%;
+}
+
+#btn_submit:active {
+  box-shadow: 0px 0px 0px 0px rgb(10,10,10);
+  border: 3px solid rgb(30, 200, 120);
+  transform: translate(-50%, 0%) scale(0.97);
+}
+
 /* demo */
 body {
   font-family: 'Poppins', sans-serif;
@@ -79,50 +123,4 @@ body {
   min-height: 100vh;
   font-size: 1.5rem;
   background-color:#222222;
-}
-
-
-.formRate {
-  width: 100%;
-  text-align: center;
-}
-
-
-/* Hide the browser's default checkbox */
-.radio-inline input {
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.radio-inline {
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.radio-inline:hover input{
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.radio-inline input:checked {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.radio-inline:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.radio-inline input:checked{
-  display: block;
 }
