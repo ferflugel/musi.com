@@ -70,8 +70,6 @@ const APIController = (function() {
 
 })();
 
-
-
 //Change UI elements programatically
 const UIController = (function() {
 
@@ -96,9 +94,6 @@ storeToken(value) {
                 token: document.querySelector(DOMElements.hfToken).value
             }
         }
-
-
-
 }
 })();
 
@@ -160,7 +155,6 @@ const beginapp = async () => {
 	console.log(songsinalbum.items[i].name);
 	i++;
 	}	
-
 
     });
 
