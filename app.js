@@ -47,9 +47,15 @@ const APIController = (function() {
         });
 
         const data = await result.json();
-	console.log(data);
-	console.log("test1234");
-	console.log(token);
+        console.log(data);
+        console.log("test1234");
+        console.log(token);
+
+        // HOW TO GET MUSICS INTO HTML:
+        for(let i = 0; i < data['items'].length; i++){
+            document.getElementById('dummyDiv').innerHTML += data['items'][i]['name'];
+        }
+
         return data;
     }
 
@@ -63,7 +69,7 @@ const APIController = (function() {
 	    console.log(albumId);
             return _getsongsinalbum(token, albumId);
         },
-	searchforalbumsmethod(token, searchstring){
+        searchforalbumsmethod(token, searchstring){
 		return _searchsongsmethod(token, searchstring);
 	}          
     }
