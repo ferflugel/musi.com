@@ -7,7 +7,6 @@ const APIController = (function() {
 
     // private methods
     const _getToken = async () => {
-
         const result = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
@@ -16,7 +15,6 @@ const APIController = (function() {
             },
             body: 'grant_type=client_credentials'
         });
-
         const data = await result.json();
         return data.access_token;
     }
@@ -48,17 +46,18 @@ const APIController = (function() {
 
         const data = await result.json();
         console.log(data);
-        console.log("test1234");
         console.log(token);
 
+        let musics = '';
         // HOW TO GET MUSICS INTO HTML:
         for(let i = 0; i < data['items'].length; i++){
-            document.getElementById('dummyDiv').innerHTML += data['items'][i]['name'];
+            //document.getElementById('dummyDiv').innerHTML += data['items'][i]['name'];
+            musics += '|' + data['items'][i]['name'];
         }
 
+        localStorage.setItem('musics', musics);
         return data;
     }
-
 
 
     return {
@@ -75,8 +74,6 @@ const APIController = (function() {
     }
 
 })();
-
-
 
 //Change UI elements programatically
 const UIController = (function() {
@@ -102,8 +99,6 @@ storeToken(value) {
                 token: document.querySelector(DOMElements.hfToken).value
             }
         }
-
-
 
 }
 })();
