@@ -17,15 +17,21 @@
   <img src="Images/music2.png" id="image_display" alt="album cover">
   <div class="formContainer">
       <form action="rate.html" method="GET">
+
         <input type="hidden" id='hidden_token'>
         <input type="hidden" id='searchquery'>
 
-        <input type="text" name="album" placeholder="Album Name" id='searchBox'>
-        <label for="album" class="form_label">Album</label>
+        <input type="text" placeholder="Album Name" id='searchBox'>
 
+        <label for="album" class="form_label">Album</label>
+        <input type="submit" value="Submit" id='SubmitForm' style="display: none;">
         <button type="submit" id="btn_submit" class="btn btn-success">Search</button>
+
       </form>
+
+
   </div>
+  <div id="result"></div>
 
   <div id="dummyDiv"></div>
 

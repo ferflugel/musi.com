@@ -26,8 +26,6 @@
     box-shadow: 0 4px 8px 0 black;
 }
 
-
-
 #searchBox {
   position: absolute;
   transform: translate(-50%, 0%);
@@ -93,7 +91,7 @@
 
 #btn_submit {
   position: absolute;
-  transform: translate(-50%, 0%);
+  transform: translate(0%, -50%);
   background-color: rgb(20, 150, 90);
   border: solid transparent;
   border-radius: 10px;
@@ -102,7 +100,7 @@
   color: white;
   width: 130px;
   height: 30px;
-  left: 50%;
+  left: 100%;
   font-size: 18px;
   bottom: 25%;
 }
@@ -123,6 +121,31 @@ body {
   min-height: 100vh;
   font-size: 1.5rem;
   background-color:#222222;
+}
+
+#result {
+  position: absolute;
+  top: 80%;
+  width: 300px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+  border: 1px dotted #ccc;
+  padding: 3px;
+}
+
+#result ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#result ul li {
+  padding: 5px 0;
+  transition: 0.3s;
+}
+#result ul li:hover {
+  background: rgba(0,153,86, 0.8);
 }
 
 #dummyDiv {
