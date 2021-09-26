@@ -24,41 +24,30 @@ const APIController = (function() {
   	while (formattedstr.includes(" ")){
   		formattedstr = formattedstr.replace(" ", "%20");
   	}
-  	console.log(formattedstr);
   	const result = await fetch(`https://api.spotify.com/v1/search?q=album:${formattedstr}&type=album`, {
               method: 'GET',
               headers: { 'Authorization' : 'Bearer ' + token}
     });
 
     const data = await result.json();
-  	//console.log(data);
     return data.albums;
   }
 
   const _getsongsinalbum = async (token, albumId) => {
 
       const limit = 10;
-      console.log(`https://api.spotify.com/v1/albums/${albumId}/tracks`);
+      // console.log(`https://api.spotify.com/v1/albums/${albumId}/tracks`);
       const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
           method: 'GET',
           headers: { 'Authorization' : 'Bearer ' + token}
       });
 
       const data = await result.json();
-      console.log(data);
-      console.log(token);
+      // console.log(data);
+      // console.log(token);
 
-      // let musics = '';
-      // // HOW TO GET MUSICS INTO HTML:
-      // for(let i = 0; i < data['items'].length; i++){
-      //     //document.getElementById('dummyDiv').innerHTML += data['items'][i]['name'];
-      //     musics += '|' + data['items'][i]['name'];
-      // }
-      //
-      // localStorage.setItem('musics', musics);
-
-
-      localStorage.setItem('albumId', albumId);
+      //Sends album id through url
+      document.getElementById('albumIdTAG').value = albumId;
       return data;
   }
 
@@ -68,7 +57,7 @@ const APIController = (function() {
       return _getToken();
     },
     getSongsOnAlbumMethod(token, albumId) {
-  	  console.log(albumId);
+  	  // console.log(albumId);
       return _getsongsinalbum(token, albumId);
     },
     searchforalbumsmethod(token, searchstring){
@@ -118,8 +107,7 @@ const APPController = (function(UICtrl, APICtrl) {
     //store the token onto the page
     UICtrl.storeToken(token);
   }
-
-  // DOMInputs.submit.addEventListener('click', async (e) => {
+  var chosenIndex = 0;
   //Checks if search button was clicked to load data
   document.getElementById('btn_submit').addEventListener('click', async (e) => {
 
@@ -131,70 +119,52 @@ const APPController = (function(UICtrl, APICtrl) {
   	console.log(searchTerms);
 
   	const searchresults = await APICtrl.searchforalbumsmethod(token, searchTerms);
-  	console.log("ALBUMS POSSIBLE");
-  	console.log(searchresults.items);
-  	console.log(searchresults.items[0]);
-  	console.log(searchresults.items[0].images[0].url);
-  	console.log(searchresults.items[0].name);
-  	document.getElementById('image_display').src = searchresults.items[0].images[0].url;
-    document.getElementById('SubmitForm').click();
 
-  	albumID = searchresults.items[0].id;
+    //Sets chosen album
+    var redirects = document.getElementById('result').children[0];
+    redirects.addEventListener('click', function(e) {
+      if (e.target && e.target.matches("li.suggestion")) {
+        //Sets album to chosen one from the suggestions dropdown
+        chosenIndex = e.target.id;
+        document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+      	albumID = searchresults.items[chosenIndex].id;
+      }
+    });
+
+
+  	document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+
+  	albumID = searchresults.items[chosenIndex].id;
   	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
-    console.log(songsinalbum);
-
-
-  	console.log(">>>>>>>>>>>>>>>>>>>OUTPUT AREA<<<<<<<<<<<<<<<<<<");
 
 
   	console.log(">>>>>>>>>>>>>>>>>>>SEARCHED FOR:");
   	console.log(searchTerms);
 
-  	console.log(">>>>>>>>>>>>>>>>>>>POSSIBLE ALBUMS:");
-  	var searchItems = searchresults.items;
-  	let i = 0;
-  	while (i < Object.keys(searchItems).length){
-  	console.log(searchresults.items[i].name);
-  	i++;
-  	}
-  	console.log(">>>>>>>>>>>>>>>>>>>ZEROETH ALBUM SELECTED, ALBUM NAME:");
-  	console.log(searchresults.items[0].name);
-
-  	console.log(">>>>>>>>>>>>>>>>>>>ZEROETH ALBUM SONGS");
-  	i = 0;
-  	while (i < Object.keys(songsinalbum.items).length){
-      console.log(songsinalbum.items[i].name);
-      i++;
-  	}
 
 
+
+    document.getElementById('SubmitForm').click();
     });
 
   //Automatically updates search results dropdown...
   document.getElementById('searchBox').addEventListener('keyup', async (e) => {
     e.preventDefault();
   	const token = UICtrl.getStoredToken().token;
-  	console.log(token);
 
   	var searchTerms = document.getElementById('searchBox').value;
-  	console.log(searchTerms);
 
   	const searchresults = await APICtrl.searchforalbumsmethod(token, searchTerms);
 
-  	document.getElementById('image_display').src = searchresults.items[0].images[0].url;
-    var res = document.getElementById('result');
-
-  	albumID = searchresults.items[0].id;
-  	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
-    console.log(songsinalbum);
-
-
-  	console.log(">>>>>>>>>>>>>>>>>>>POSSIBLE ALBUMS:");
   	var searchItems = searchresults.items;
+
+    //If there are more than plenty of search results, show only the first five
   	let i = 0;
     let names = '';
-    //If there are more than plenty of search results, show only the first five
-    let end = (l) => {
+    var res = document.getElementById('result');
+
+
+    let maxLength = (l) => {
       if(l >= 5) {
         return 5;
       } else {
@@ -202,12 +172,48 @@ const APPController = (function(UICtrl, APICtrl) {
       }
     };
 
-    while (i < end(Object.keys(searchItems).length)){
-  	   console.log(searchresults.items[i].name);
-       names += '<li>' + searchresults.items[i].name + '</li>';
+    //Creates suggestions list
+    res.innerHTML = "";
+    res.appendChild( document.createElement('ul') );
+    while (i < maxLength(Object.keys(searchItems).length)){
+       //Avoids repeating names on the list
+       if(names.includes(searchresults.items[i].name) == false) {
+         var element = document.createElement('li');
+         element.className = 'suggestion';
+         element.id = i;
+         element.appendChild( document.createTextNode( searchresults.items[i].name ) );
+         names += '<li>' + searchresults.items[i].name + '</li>';
+         res.children[0].appendChild( element );
+       }
+
   	   i++;
   	}
-    res.innerHTML = '<ul>' + names + '</ul>'
+
+
+    //Shows or hides suggestions according to written input
+    if(document.getElementById('searchBox').value == "") {
+      res.style.display = 'none';
+    } else {
+      res.style.display = 'block';
+    }
+
+
+    var redirects = document.getElementById('result').children[0];
+    redirects.addEventListener('click', function(e) {
+      if (e.target && e.target.matches("li.suggestion")) {
+        //Sets album to chosen one from the suggestions dropdown
+        chosenIndex = e.target.id;
+        document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+      	albumID = searchresults.items[chosenIndex].id;
+      }
+    });
+
+
+    //Gets first or chosen album to be displayed
+    document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+
+  	albumID = searchresults.items[chosenIndex].id;
+  	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
 
   });
 

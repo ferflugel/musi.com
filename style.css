@@ -42,6 +42,7 @@
   text-align: center;
   background: transparent;
   transition: border-color 0.2s;
+  z-index: 999;
 }
 
 #searchBox::placeholder {
@@ -91,7 +92,7 @@
 
 #btn_submit {
   position: absolute;
-  transform: translate(0%, -50%);
+  transform: translate(0%, 0%);
   background-color: rgb(20, 150, 90);
   border: solid transparent;
   border-radius: 10px;
@@ -100,15 +101,16 @@
   color: white;
   width: 130px;
   height: 30px;
+  margin-left: 10px;
+  top: 46%;
   left: 100%;
   font-size: 18px;
-  bottom: 25%;
 }
 
 #btn_submit:active {
   box-shadow: 0 0 0 0 rgb(10,10,10);
   border: 3px solid rgb(30, 200, 120);
-  transform: translate(-50%, 0%) scale(0.97);
+  transform: scale(0.96);
 }
 
 /* demo */
@@ -125,14 +127,14 @@ body {
 
 #result {
   position: absolute;
-  top: 80%;
-  width: 300px;
+  top: 72%;
+  width: 30vw;
   font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   color: white;
-  border: 1px dotted #ccc;
-  padding: 3px;
+  border: 1px solid rgba(100,100,100,0.7);
+  /* padding: 2px; */
 }
 
 #result ul {
@@ -146,13 +148,4 @@ body {
 }
 #result ul li:hover {
   background: rgba(0,153,86, 0.8);
-}
-
-#dummyDiv {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: 40vw;
-    height: 5vh;
-    left: 50%;
-    top: 90%;
 }
