@@ -65,14 +65,28 @@ const APIController = (function() {
       return data;
   }
 
+  const _getAlbumCover = async (token, albumId) => {
+
+      const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
+          mode: 'no-cors',
+          method: 'GET',
+          headers: {'Authorization' : 'Bearer ' + token}
+      });
+
+      return await result.json();
+  }
+
   return {
     getToken() {
-      return _getToken();
+        return _getToken();
     },
     getSongsOnAlbumMethod(token, albumId) {
-  	  console.log(albumId);
-      return _getSongsInAlbum(token, albumId);
+        return _getSongsInAlbum(token, albumId);
+    },
+    getCover(token, albumId) {
+        return _getAlbumCover(token, albumId);
     }
+
   }
 })();
 
@@ -81,6 +95,7 @@ const APPController = (function(APICtrl) {
   //Defines the init function
   const beginApp = async () => {
     const token = await APICtrl.getToken();
+    console.log(APIController.getCover(token, albumID));
     let album = APIController.getSongsOnAlbumMethod(token, albumID);
     dt = album;
     dt.then(function(results) {
@@ -92,6 +107,8 @@ const APPController = (function(APICtrl) {
         }
       });
     })
+
+      // document.getElementById('albumCover').src = APIController.getCover(token, album).images[0].url;
   }
 
   // album
