@@ -23,6 +23,12 @@ body {
   filter: brightness(0.3);
 }
 
+.audioPreview {
+  visibility: hidden;
+  position: absolute;
+  left: -100%;
+}
+
 .Button {
   position: absolute;
   width: 50px;

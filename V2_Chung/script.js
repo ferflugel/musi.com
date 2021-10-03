@@ -1,30 +1,46 @@
 //Hides other musics from the screen
-const p = document.getElementsByClassName('musicPage');
-const musics = []
-var activeMusic = "Starboy";
-Array.prototype.forEach.call(p, elem => {
-  musics.push(elem.getAttribute('id'));
-  if(elem.getAttribute('name') != "Active") {
-    elem.style.display = 'none';
-  }
-});
+const musics = [];
+var p = '';
+var activeMusic = "";
+function hideElements() {
+  p = document.getElementsByClassName("musicPage");
+  console.log(p);
+  Array.prototype.forEach.call(p, elem => {
+    musics.push(elem.getAttribute('id'));
+    if(elem.getAttribute('name') != "Active") {
+      elem.style.display = 'none';
+      elem.querySelectorAll('audio')[0].pause();
+    } else {
+      elem.style.display = 'block';
+      elem.querySelectorAll('audio')[0].play();
+    }
+  });
+};
+//Delays function so that elements have time to load
+setTimeout(hideElements, 1000);
+setTimeout(function() {
+  activeMusic = document.getElementsByName("Active")[0].id;
+}, 1000);
+
 
 //Updates the active tab
 function updateActive() {
   Array.prototype.forEach.call(p, elem => {
     if(elem.getAttribute('name') != "Active") {
       elem.style.display = 'none';
+      elem.querySelectorAll('audio')[0].pause();
     } else if ( elem.getAttribute('name') == "Active" ) {
       elem.style.display = 'block';
+      elem.querySelectorAll('audio')[0].play();
       activeMusic = elem.getAttribute('id');
     }
   });
 }
 
 // Sets the start time of the video
-document.getElementsByClassName('musicPage')[0].children[0].addEventListener('loadedmetadata', function() {
-  this.currentTime = 57;
-}, false);
+// document.getElementsByClassName('musicPage')[0].children[0].addEventListener('loadedmetadata', function() {
+//   this.currentTime = 57;
+// }, false);
 
 // Hover effect on rating buttons
 function hoveringEffect(id) {
@@ -91,21 +107,6 @@ const proxy = new Proxy(musics, {
 });
 
 //Changes current active music
-
-// function PrevMusic() {
-//   arr = [ 0,   0,   0,   0,   0];
-//   for (var i = 0; i < musics.length; i++) {
-//     elem = document.getElementById(proxy[i]);
-//     if (elem.getAttribute('name') == "Active") {
-//       elem.setAttribute('name', " ");
-//       activate = i - 1;
-//     } else if (elem == document.getElementById(proxy[activate])) {
-//       elem.setAttribute('name', "Active");
-//     }
-//   }
-//   updateActive();
-// }
-
 function PrevMusic() {
   arr = [ 0,   0,   0,   0,   0];
   elem = document.getElementById(activeMusic);
@@ -123,3 +124,29 @@ function NextMusic() {
   document.getElementById(proxy[index]).setAttribute('name', "Active");
   updateActive();
 }
+
+
+// //Iteratively create music pages with album songs and data
+// function createPage(musicRef) {
+//   const cln = document.getElementById('clone').cloneNode(true);
+//
+//   //Gets data from the music reference
+//   const artist = musicRef.artists[0].name;
+//   const musicName = musicRef.name;
+//   const audioPrev = musicRef.preview_url;
+//   // const coverImage = musicRef;
+//
+//   //Modify div with gathered data
+//   cln.querySelectorAll('audio')[0].src = audioPrev;
+//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicName')[0].innerHTML = musicName;
+//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicArtist')[0].innerHTML = artist;
+//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.rateButton').forEach((item, i) => {
+//     item.id = musicName + item.id.split('Clone')[1];
+//     document.getElementById(item.id).setAttribute('onmouseover', "hoveringEffect("+item.id+")");
+//     document.getElementById(item.id).setAttribute('onclick', "updateVal("+item.id")");
+//   });
+//
+//   cln.id = musicName;
+//   //Appends the modified div to body
+//   document.body.appendChild(cln);
+// }
