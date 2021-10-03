@@ -1,3 +1,15 @@
+/*
+let data_array = data.split('|');
+let musics = [];
+let ratings = [];
+for(let i = 0; i < data_array.length; i++){
+    let tuple = data_array[i].split('_');
+    musics.append(tuple[0]);
+    ratings.append(tuple[1]);
+}
+*/
+
+
 // Creating the list
 let musics = ["Stronger", "Drunk and Hot Girls", "Big Brother", "I Wonder", "Flashing Lights", "The Glory", "Champion"]
 let ratings = [9, 5, 8, 9, 9.5, 6, 7]

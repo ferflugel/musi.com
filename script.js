@@ -17,10 +17,10 @@ function hideElements() {
   });
 };
 //Delays function so that elements have time to load
-setTimeout(hideElements, 1000);
+setTimeout(hideElements, 2000);
 setTimeout(function() {
   activeMusic = document.getElementsByName("Active")[0].id;
-}, 1000);
+}, 2000);
 
 
 //Updates the active tab
