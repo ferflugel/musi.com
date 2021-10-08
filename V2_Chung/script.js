@@ -1,46 +1,53 @@
 //Hides other musics from the screen
-const musics = [];
-var p = '';
+var musics = new Array();
+var p = [];
 var activeMusic = "";
+
 function hideElements() {
   p = document.getElementsByClassName("musicPage");
-  console.log(p);
   Array.prototype.forEach.call(p, elem => {
-    musics.push(elem.getAttribute('id'));
-    if(elem.getAttribute('name') != "Active") {
-      elem.style.display = 'none';
-      elem.querySelectorAll('audio')[0].pause();
-    } else {
+
+    if(elem.classList.contains("Active")) {
       elem.style.display = 'block';
-      elem.querySelectorAll('audio')[0].play();
+      try {
+        elem.querySelectorAll('audio')[0].play();
+      } finally {
+        console.log("No audio to reproduce");
+      }
+    } else {
+      elem.style.display = 'none';
+      try {
+        elem.querySelectorAll('audio')[0].pause();
+      } finally {
+        console.log("No audio to reproduce");
+      }
     }
+
   });
 };
-//Delays function so that elements have time to load
-setTimeout(hideElements, 1000);
-setTimeout(function() {
-  activeMusic = document.getElementsByName("Active")[0].id;
-}, 1000);
+
 
 
 //Updates the active tab
 function updateActive() {
   Array.prototype.forEach.call(p, elem => {
-    if(elem.getAttribute('name') != "Active") {
+    if(!(elem.classList.contains("Active"))) {
       elem.style.display = 'none';
-      elem.querySelectorAll('audio')[0].pause();
-    } else if ( elem.getAttribute('name') == "Active" ) {
+      try {
+        elem.querySelectorAll('audio')[0].pause();
+      } finally {
+        console.log("No audio to reproduce");
+      }
+    } else if (elem.classList.contains("Active")) {
       elem.style.display = 'block';
-      elem.querySelectorAll('audio')[0].play();
+      try {
+        elem.querySelectorAll('audio')[0].play();
+      } finally {}
       activeMusic = elem.getAttribute('id');
     }
   });
-}
+};
 
-// Sets the start time of the video
-// document.getElementsByClassName('musicPage')[0].children[0].addEventListener('loadedmetadata', function() {
-//   this.currentTime = 57;
-// }, false);
 
 // Hover effect on rating buttons
 function hoveringEffect(id) {
@@ -78,7 +85,7 @@ let arr = [ 0,   0,   0,   0,   0];
 function updateVal(id) {
   arr = [0, 0, 0, 0, 0];
   for(let i = 0; i <= parseInt(id.split(activeMusic)[1]); i++) {
-    arr[i] = 1
+    arr[i] = 1;
   }
 
   for(let i = 0; i < arr.length; i++) {
@@ -110,43 +117,17 @@ const proxy = new Proxy(musics, {
 function PrevMusic() {
   arr = [ 0,   0,   0,   0,   0];
   elem = document.getElementById(activeMusic);
-  elem.setAttribute('name', " ");
+  elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))-1;
-  document.getElementById(proxy[index]).setAttribute('name', "Active");
+  document.getElementById(proxy[index]).classList.add("Active");
   updateActive();
 }
 
 function NextMusic() {
   arr = [ 0,   0,   0,   0,   0];
   elem = document.getElementById(activeMusic);
-  elem.setAttribute('name', " ");
+  elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))+1;
-  document.getElementById(proxy[index]).setAttribute('name', "Active");
+  document.getElementById(proxy[index]).classList.add("Active");
   updateActive();
 }
-
-
-// //Iteratively create music pages with album songs and data
-// function createPage(musicRef) {
-//   const cln = document.getElementById('clone').cloneNode(true);
-//
-//   //Gets data from the music reference
-//   const artist = musicRef.artists[0].name;
-//   const musicName = musicRef.name;
-//   const audioPrev = musicRef.preview_url;
-//   // const coverImage = musicRef;
-//
-//   //Modify div with gathered data
-//   cln.querySelectorAll('audio')[0].src = audioPrev;
-//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicName')[0].innerHTML = musicName;
-//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicArtist')[0].innerHTML = artist;
-//   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.rateButton').forEach((item, i) => {
-//     item.id = musicName + item.id.split('Clone')[1];
-//     document.getElementById(item.id).setAttribute('onmouseover', "hoveringEffect("+item.id+")");
-//     document.getElementById(item.id).setAttribute('onclick', "updateVal("+item.id")");
-//   });
-//
-//   cln.id = musicName;
-//   //Appends the modified div to body
-//   document.body.appendChild(cln);
-// }

@@ -5,9 +5,15 @@
     <title>Spotify Rating</title>
     <link href="https://css.gg/css?=|play-track-next-o|play-track-prev-o" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   </head>
   <body onload="updateActive()">
+    <form>
+      <input type="hidden" id='hidden_token' >
+    </form>
+    <!-- <script type="text/javascript" src="DOM_Organizer.js"></script> -->
     <div id="clone" style="display:none">
       <!-- Background video -->
       <video class="video" playsinline muted autoplay loop>
@@ -45,7 +51,7 @@
     </div>
 
   </body>
-  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="songs.js"></script>
+  <!-- <script type="text/javascript" src="songs.js"></script> -->
 
 </html>
