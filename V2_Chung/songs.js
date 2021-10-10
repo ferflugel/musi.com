@@ -62,6 +62,25 @@ const APIController = (function() {
       const data = await result.json();
       return data;
   }
+  const _getSongsInAlbum = async (token, albumId) => {
+
+      const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
+          method: 'GET',
+          headers: { 'Authorization' : 'Bearer ' + token}
+      });
+
+      const data = await result.json();
+      return data;
+  }
+
+  const _getAlbumCover = async (token, albumId) => {
+
+      const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
+          method: 'GET',
+          headers: {'Authorization' : 'Bearer ' + token}
+      });
+      return await result.json();
+  }
 
   return {
     getToken() {
@@ -70,6 +89,10 @@ const APIController = (function() {
     getSongsOnAlbumMethod(token, albumId) {
   	  console.log(albumId);
       return _getSongsInAlbum(token, albumId);
+    },
+
+    getCover(token, albumId) {
+        return _getAlbumCover(token, albumId);
     }
   }
 })();
