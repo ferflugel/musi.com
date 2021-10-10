@@ -2,7 +2,9 @@
 var musics = new Array();
 var p = [];
 var activeMusic = "";
+var ratings = {};
 
+//Hides all but the first music of the album to be shown on the screen
 function hideElements() {
   p = document.getElementsByClassName("musicPage");
   Array.prototype.forEach.call(p, elem => {
@@ -26,9 +28,7 @@ function hideElements() {
   });
 };
 
-
-
-//Updates the active tab
+//Updates the active music page
 function updateActive() {
   Array.prototype.forEach.call(p, elem => {
     if(!(elem.classList.contains("Active"))) {
@@ -84,6 +84,7 @@ function resetCSS() {
 let arr = [ 0,   0,   0,   0,   0];
 function updateVal(id) {
   arr = [0, 0, 0, 0, 0];
+
   for(let i = 0; i <= parseInt(id.split(activeMusic)[1]); i++) {
     arr[i] = 1;
   }
@@ -97,7 +98,15 @@ function updateVal(id) {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }
   }
-  console.log(arr);
+
+  //Sums 1's in the arr to get rating
+  const sum = arr.reduce(add,0); // with initial value to avoid when the array is empty
+  function add(accumulator, a) {
+    return accumulator + a;
+  }
+  //Stores rating on dictionary
+  ratings[activeMusic] = sum;
+
 };
 
 //Handles negative indexes on arrays
@@ -115,19 +124,30 @@ const proxy = new Proxy(musics, {
 
 //Changes current active music
 function PrevMusic() {
-  arr = [ 0,   0,   0,   0,   0];
   elem = document.getElementById(activeMusic);
   elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))-1;
   document.getElementById(proxy[index]).classList.add("Active");
   updateActive();
+
+  //Retrieves stored ratings
+  let grade = ratings[proxy[index]];
+  let el = document.getElementById(proxy[index] + String(grade-1));
+  el.click();
+
 }
 
 function NextMusic() {
-  arr = [ 0,   0,   0,   0,   0];
   elem = document.getElementById(activeMusic);
   elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))+1;
   document.getElementById(proxy[index]).classList.add("Active");
   updateActive();
+
+  //Retrieves stored ratings
+  let grade = ratings[proxy[index]];
+  let el = document.getElementById(proxy[index] + String(grade-1));
+  el.click();
+
+
 }

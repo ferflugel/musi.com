@@ -111,6 +111,7 @@ const APPController = (function(UICtrl, APICtrl) {
   token = UICtrl.getStoredToken().token;
   var album = APICtrl.getSongsOnAlbumMethod(token, albumID);
   dt = album;
+  
   dt.then(function(results) {
     Array.prototype.forEach.call(results.items, (element, i) => {
       musics.push(element.name);
