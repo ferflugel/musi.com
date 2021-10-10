@@ -66,11 +66,9 @@ const APIController = (function() {
   const _getAlbumCover = async (token, albumId) => {
 
       const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}`, {
-          mode: 'no-cors',
           method: 'GET',
           headers: {'Authorization' : 'Bearer ' + token}
       });
-
       return await result.json();
   }
 
