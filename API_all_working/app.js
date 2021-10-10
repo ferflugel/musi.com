@@ -63,8 +63,8 @@ const APIController = (function() {
 	    console.log(albumId);
             return _getsongsinalbum(token, albumId);
         },
-	searchforalbumsmethod(token, searchstring){
-		return _searchsongsmethod(token, searchstring);
+	    searchforalbumsmethod(token, searchstring){
+		    return _searchsongsmethod(token, searchstring);
 	}          
     }
 
