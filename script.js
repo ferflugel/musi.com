@@ -27,15 +27,6 @@ function hideElements() {
 
   });
 };
-<<<<<<< HEAD:V2_Chung/script.js
-=======
-//Delays function so that elements have time to load
-setTimeout(hideElements, 2000);
-setTimeout(function() {
-  activeMusic = document.getElementsByName("Active")[0].id;
-}, 2000);
-
->>>>>>> 722222054c8feada443a4335978513aa9f6428ec:script.js
 
 //Updates the active music page
 function updateActive() {

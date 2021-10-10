@@ -116,12 +116,6 @@ const APPController = (function(UICtrl, APICtrl) {
 
   //Defines the init function
   const beginApp = async () => {
-<<<<<<< HEAD:V2_Chung/songs.js
-    token = await APICtrl.getToken();
-
-    //store the token onto the page
-    UICtrl.storeToken(token);
-=======
     const token = await APICtrl.getToken();
     console.log(APIController.getCover(token, albumID));
     let album = APIController.getSongsOnAlbumMethod(token, albumID);
@@ -137,7 +131,6 @@ const APPController = (function(UICtrl, APICtrl) {
     })
 
       // document.getElementById('albumCover').src = APIController.getCover(token, album).images[0].url;
->>>>>>> 722222054c8feada443a4335978513aa9f6428ec:songs.js
   }
 
   token = UICtrl.getStoredToken().token;
