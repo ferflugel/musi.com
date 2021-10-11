@@ -158,3 +158,19 @@ const APPController = (function(UICtrl, APICtrl) {
 })(UIController, APIController);
 
 APPController.init();
+
+
+/*
+// On first file (not sure which one)
+const resultsJSON = JSON.stringify(ratings);
+localStorage.setItem("ratings", resultsJSON);
+
+// On other file (analysis.js)
+const resultsJSON = localStorage.getItem("ratings");
+var obj = JSON.parse(resultsJSON);
+let musics = [];
+let ratings = [];
+Object.entries(obj).forEach(itm=>musics.push(itm[0]));
+Object.entries(obj).forEach(itm=>ratings.push(itm[1]));
+
+*/
