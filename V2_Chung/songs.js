@@ -62,16 +62,6 @@ const APIController = (function() {
       const data = await result.json();
       return data;
   }
-  const _getSongsInAlbum = async (token, albumId) => {
-
-      const result = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
-          method: 'GET',
-          headers: { 'Authorization' : 'Bearer ' + token}
-      });
-
-      const data = await result.json();
-      return data;
-  }
 
   const _getAlbumCover = async (token, albumId) => {
 
@@ -147,7 +137,7 @@ const APPController = (function(UICtrl, APICtrl) {
   });
 
   hideElements();
-  updateActive();
+
   //Starts the API call
   return {
     init() {

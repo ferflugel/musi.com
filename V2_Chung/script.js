@@ -11,20 +11,19 @@ function hideElements() {
 
     if(elem.classList.contains("Active")) {
       elem.style.display = 'block';
+
       try {
         elem.querySelectorAll('audio')[0].play();
-      } finally {
-        console.log("No audio to reproduce");
-      }
+      } finally {}
+
     } else {
       elem.style.display = 'none';
+
       try {
         elem.querySelectorAll('audio')[0].pause();
-      } finally {
-        console.log("No audio to reproduce");
-      }
-    }
+      } finally {}
 
+    }
   });
 };
 
@@ -35,9 +34,7 @@ function updateActive() {
       elem.style.display = 'none';
       try {
         elem.querySelectorAll('audio')[0].pause();
-      } finally {
-        console.log("No audio to reproduce");
-      }
+      } finally {}
     } else if (elem.classList.contains("Active")) {
       elem.style.display = 'block';
       try {
@@ -47,6 +44,11 @@ function updateActive() {
     }
   });
 };
+
+//Attempts to solve the white-screen issue when loading
+window.addEventListener('click', function() {
+  updateActive();
+})
 
 
 // Hover effect on rating buttons
@@ -150,4 +152,12 @@ function NextMusic() {
   el.click();
 
 
+}
+
+//Sends data to the next page
+function SubmitEval() {
+  sessionStorage.setItem('evaluations', JSON.stringify(ratings));
+  setTimeout(function() {
+    window.location.href = "results/results_3.html";
+  }, 1000);
 }

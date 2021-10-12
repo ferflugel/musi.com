@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Spotify Rating</title>
     <link href="https://css.gg/css?=|play-track-next-o|play-track-prev-o" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style_2.css">
     <script type="text/javascript" src="script.js"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -17,7 +17,7 @@
     <div id="clone" style="display:none">
       <!-- Background video -->
       <video class="video" playsinline muted autoplay loop>
-        <source src="The Weeknd - Starboy.mp4" type="video/mp4">
+        <source src="background.mp4" type="video/mp4">
       </video>
       <audio class="audioPreview"></audio>
 
@@ -28,7 +28,7 @@
       </div>
 
       <!-- Album cover -->
-      <img class="capaAlbum" id="albumCover" src="Starboy.png" alt="Album cover">
+      <img class="capaAlbum" id="albumCover" src="../Starboy.png" alt="Album cover">
 
       <!-- Rating music 1 -->
       <div class="colorBar" onmouseout="resetCSS()" name="0">
@@ -50,8 +50,9 @@
 
     </div>
 
+    <!-- Finishes the rating process and sends data to the next page  -->
+    <div class="Finish" onclick="SubmitEval()">Finish</div>
+
   </body>
   <script type="text/javascript" src="songs.js"></script>
-  <!-- <script type="text/javascript" src="songs.js"></script> -->
-
 </html>
