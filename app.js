@@ -127,10 +127,10 @@ const APPController = (function(UICtrl, APICtrl) {
         //Sets album to chosen one from the suggestions dropdown
         chosenIndex = e.target.id;
         document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+
       	albumID = searchresults.items[chosenIndex].id;
       }
     });
-
 
   	document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
 

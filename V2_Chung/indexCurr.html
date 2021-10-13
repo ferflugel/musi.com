@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Spotify Rating</title>
     <link href="https://css.gg/css?=|play-track-next-o|play-track-prev-o" rel="stylesheet">
-    <link rel="stylesheet" href="../style_2.css">
+    <link rel="stylesheet" href="style_2.css">
     <script type="text/javascript" src="script.js"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -13,12 +13,18 @@
     <form>
       <input type="hidden" id='hidden_token' >
     </form>
-    <!-- <script type="text/javascript" src="DOM_Organizer.js"></script> -->
+
+    <!-- Background video -->
+    <video class="video" playsinline muted autoplay loop>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+
+    <!-- Album cover -->
+    <img id="albumCover" alt="Album cover">
+
     <div id="clone" style="display:none">
-      <!-- Background video -->
-      <video class="video" playsinline muted autoplay loop>
-        <source src="background.mp4" type="video/mp4">
-      </video>
+
+      <!-- Audio preview -->
       <audio class="audioPreview"></audio>
 
       <!-- Previous song button -->
@@ -27,8 +33,6 @@
         <!-- <i class="arrow left"></i> -->
       </div>
 
-      <!-- Album cover -->
-      <img class="capaAlbum" id="albumCover" src="../Starboy.png" alt="Album cover">
 
       <!-- Rating music 1 -->
       <div class="colorBar" onmouseout="resetCSS()" name="0">
@@ -54,5 +58,10 @@
     <div class="Finish" onclick="SubmitEval()">Finish</div>
 
   </body>
+  <script type="text/javascript">
+    setTimeout(function() {
+      document.getElementById('albumCover').click();
+    }, 1000);
+  </script>
   <script type="text/javascript" src="songs.js"></script>
 </html>

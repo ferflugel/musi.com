@@ -21,6 +21,7 @@ function hideElements() {
 
       try {
         elem.querySelectorAll('audio')[0].pause();
+        console.log('pause');
       } finally {}
 
     }
@@ -45,10 +46,6 @@ function updateActive() {
   });
 };
 
-//Attempts to solve the white-screen issue when loading
-window.addEventListener('click', function() {
-  updateActive();
-})
 
 
 // Hover effect on rating buttons
@@ -161,3 +158,21 @@ function SubmitEval() {
     window.location.href = "results/results_3.html";
   }, 1000);
 }
+
+
+//Attempts to solve the white-screen issue when loading
+window.addEventListener('click', function() {
+  updateActive();
+  APIController.getCover(token, albumID).then(function(result) {
+    document.getElementById('albumCover').src = result.images[0].url;
+  })
+})
+
+//Sets album cover
+window.addEventListener('load', function() {
+  APIController.getCover(token, albumID).then(function(result) {
+    document.getElementById('albumCover').src = result.images[0].url;
+  })
+})
+
+//var daudio = document.getElementById('Woman of the Hour').querySelectorAll('audio')[0];
