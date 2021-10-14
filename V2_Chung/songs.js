@@ -178,6 +178,7 @@ const APPController = (function(UICtrl, APICtrl) {
   //     }, 200);
   //   });
   // };
+  
   albumCoverURL = APICtrl.getCover();
 
   //Starts the API call
