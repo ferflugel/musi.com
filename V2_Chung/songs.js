@@ -3,6 +3,7 @@ albumID = params.get('albumId');
 var dt;
 var albumCoverURL;
 
+
 //Iteratively create music pages with album songs and data
 function createPage(musicRef, active) {
   const cln = document.getElementById('clone').cloneNode(true);
@@ -140,6 +141,8 @@ const APPController = (function(UICtrl, APICtrl) {
   //Hides other pages
   hideElements();
 
+  setVolume();
+
   //Not working
   //  Fades audio in and out
   // var audioElements = document.getElementsByClassName("audioPreview");
@@ -178,7 +181,7 @@ const APPController = (function(UICtrl, APICtrl) {
   //     }, 200);
   //   });
   // };
-  
+
   albumCoverURL = APICtrl.getCover();
 
   //Starts the API call

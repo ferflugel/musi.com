@@ -4,13 +4,23 @@
     <meta charset="utf-8">
     <title>Spotify Rating</title>
     <link href="https://css.gg/css?=|play-track-next-o|play-track-prev-o" rel="stylesheet">
+    <link href="https://css.gg/loadbar-sound.css" rel='stylesheet'>
     <link rel="stylesheet" href="style_2.css">
+    <link rel="stylesheet" href="volume_controller.css">
     <link rel="stylesheet" href="../video_style.css">
+
     <script type="text/javascript" src="script.js"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   </head>
   <body onload="updateActive()">
+
+    <!-- Mute/Unmute button -->
+    <div id="volumeSlider">
+      <i class="gg-loadbar-sound"></i>
+      <input type="range" min="1" max="100" value="100" class="slider" id="volRange" oninput="setVolume()">
+    </div>
+
     <form>
       <input type="hidden" id='hidden_token' >
     </form>
@@ -19,6 +29,9 @@
     <video class="video" playsinline muted autoplay loop>
       <source src="../background.mp4" type="video/mp4">
     </video>
+
+    <!-- Play/Pause button -->
+
 
     <!-- Album cover -->
     <img id="albumCover" alt="Album cover">
@@ -40,11 +53,11 @@
           <!-- Each of these divs is one rating button -->
           <p class="musicName"></p>
           <p class="musicArtist"></p>
-          <div class="rateButton" id="Clone4" onmouseover="hoveringEffect('Starboy4')" onclick="updateVal('Starboy4')"></div>
-          <div class="rateButton" id="Clone3" onmouseover="hoveringEffect('Starboy3')" onclick="updateVal('Starboy3')"></div>
-          <div class="rateButton" id="Clone2" onmouseover="hoveringEffect('Starboy2')" onclick="updateVal('Starboy2')"></div>
-          <div class="rateButton" id="Clone1" onmouseover="hoveringEffect('Starboy1')" onclick="updateVal('Starboy1')"></div>
-          <div class="rateButton" id="Clone0" onmouseover="hoveringEffect('Starboy0')" onclick="updateVal('Starboy0')"></div>
+          <div class="rateButton" id="Clone4" onmouseover="hoveringEffect('Clone4')" onclick="updateVal('Clone4')"></div>
+          <div class="rateButton" id="Clone3" onmouseover="hoveringEffect('Clone3')" onclick="updateVal('Clone3')"></div>
+          <div class="rateButton" id="Clone2" onmouseover="hoveringEffect('Clone2')" onclick="updateVal('Clone2')"></div>
+          <div class="rateButton" id="Clone1" onmouseover="hoveringEffect('Clone1')" onclick="updateVal('Clone1')"></div>
+          <div class="rateButton" id="Clone0" onmouseover="hoveringEffect('Clone0')" onclick="updateVal('Clone0')"></div>
       </div>
 
       <!-- Next song button -->
@@ -64,5 +77,7 @@
       document.getElementById('albumCover').click();
     }, 1000);
   </script>
+
+  <script type="text/javascript" src="volume_controller.js"></script>
   <script type="text/javascript" src="songs.js"></script>
 </html>
