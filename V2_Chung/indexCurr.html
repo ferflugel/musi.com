@@ -30,16 +30,18 @@
       <source src="../background.mp4" type="video/mp4">
     </video>
 
+
     <!-- Play/Pause button -->
-
-
     <!-- Album cover -->
-    <img id="albumCover" alt="Album cover">
+    <div id="Album">
+      <button id="playPause" class="paused"></button>
+      <img id="albumCover" alt="Album cover">
+    </div>
 
     <div id="clone" style="display:none">
 
       <!-- Audio preview -->
-      <audio class="audioPreview"></audio>
+      <audio class="audioPreview" autoplay loop></audio>
 
       <!-- Previous song button -->
       <div class="Button" id="prev" onclick="PrevMusic(this)">
@@ -75,9 +77,9 @@
   <script type="text/javascript">
     setTimeout(function() {
       document.getElementById('albumCover').click();
-    }, 1000);
+    }, 500);
   </script>
 
-  <script type="text/javascript" src="volume_controller.js"></script>
+  <script type="text/javascript" src="AudioControl.js"></script>
   <script type="text/javascript" src="songs.js"></script>
 </html>

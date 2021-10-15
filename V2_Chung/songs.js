@@ -1,6 +1,6 @@
 let params = new URLSearchParams(location.search);
 albumID = params.get('albumId');
-var dt;
+var dt, btn, active, position;
 var albumCoverURL;
 
 
@@ -132,6 +132,23 @@ const APPController = (function(UICtrl, APICtrl) {
       musics.push(element.name);
       if(i == 0) {
         createPage(element, true);
+
+        //Adds play/pause on musics
+        btn = document.getElementById('playPause');
+        position = 0;
+
+        btn.addEventListener('click', function() {
+          active = document.getElementsByClassName('Active')[0];
+          if (!(btn.classList.contains("paused"))) {
+            active.getElementsByTagName('audio')[0].currentTime = position;
+            active.getElementsByTagName('audio')[0].volume = 1;
+            btn.classList.add("paused");
+          } else {
+            position = active.getElementsByTagName('audio')[0].currentTime;
+            active.getElementsByTagName('audio')[0].volume = 0;
+            btn.classList.remove("paused");
+          }
+        });
       } else {
         createPage(element, false);
       }
@@ -142,6 +159,7 @@ const APPController = (function(UICtrl, APICtrl) {
   hideElements();
 
   setVolume();
+
 
   //Not working
   //  Fades audio in and out

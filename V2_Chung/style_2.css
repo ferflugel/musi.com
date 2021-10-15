@@ -122,15 +122,63 @@ body {
   transform: scale(2.2);
 }
 
-#albumCover {
+#Album {
   position: absolute;
   width: 400px;
+  height: 400px;
   transform: translate(-50%, -50%);
   left: 25vw;
   top: 50vh;
+  background: transparent;
+}
+
+#albumCover {
+  position: absolute;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
   box-shadow: 0 0 30px 10px;
   border-radius: 5px;
+  transition: filter 0.8s;
 }
+
+#Album:hover #albumCover {
+  filter: brightness(0.6);
+  transition: filter 0.2s;
+}
+
+#playPause {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0.64);
+  opacity: 0;
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  border: 1;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 74px;
+
+  border-color: transparent transparent transparent #ffffff;
+  transition:  border 0.1s ease, opacity 0.5s;
+  cursor: pointer;
+
+  // play state
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+}
+#playPause.paused {
+  border-style: double;
+  border-width: 0px 0px 0px 60px;
+}
+
+#Album:hover #playPause {
+  border-color: transparent transparent transparent #fffffd;
+  opacity: 1;
+}
+
 
 .colorBar {
   position: absolute;

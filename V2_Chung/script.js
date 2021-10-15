@@ -46,8 +46,6 @@ function updateActive() {
   });
 };
 
-
-
 // Hover effect on rating buttons
 function hoveringEffect(id) {
   let temp = [ 0,   0,   0,   0,   0];
@@ -172,7 +170,11 @@ window.addEventListener('click', function() {
 window.addEventListener('load', function() {
   APIController.getCover(token, albumID).then(function(result) {
     document.getElementById('albumCover').src = result.images[0].url;
-  })
-})
+  });
+});
+
+
+
+
 
 //var daudio = document.getElementById('Woman of the Hour').querySelectorAll('audio')[0];

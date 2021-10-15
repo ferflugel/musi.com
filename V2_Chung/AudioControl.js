@@ -5,6 +5,10 @@ let audioElements = document.getElementsByTagName('audio');
 function setVolume() {
   Array.prototype.forEach.call(audioElements, aud => {
     aud.volume = ((parseInt(volSlider.value)-1)/100);
+
+    aud.addEventListener('ended', function() {
+      aud.currentTime = 0;
+    })
   })
 }
 
@@ -22,5 +26,5 @@ window.addEventListener('load', function() {
   setTimeout(function() {
     volSlider.attributeStyleMap.clear();
     volAnim.attributeStyleMap.clear();
-  }, 2500);
+  }, 2000);
 })
