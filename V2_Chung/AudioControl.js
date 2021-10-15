@@ -7,9 +7,24 @@ function setVolume() {
     aud.volume = ((parseInt(volSlider.value)-1)/100);
 
     aud.addEventListener('ended', function() {
-      aud.currentTime = 0;
+      setTimeout(function() {
+        aud.currentTime = 0;
+      }, 1200);
     })
   })
+}
+
+function setAudioState() {
+  var btn = document.getElementById('playPause');
+  if (btn.classList.contains("paused")) {
+    Array.prototype.forEach.call(document.getElementsByTagName('audio'), aud => {
+      aud.volume = 1;
+    });
+  } else {
+    Array.prototype.forEach.call(document.getElementsByTagName('audio'), aud => {
+      aud.volume = 0;
+    });
+  }
 }
 
 window.addEventListener('load', function() {

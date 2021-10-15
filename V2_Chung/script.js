@@ -172,9 +172,3 @@ window.addEventListener('load', function() {
     document.getElementById('albumCover').src = result.images[0].url;
   });
 });
-
-
-
-
-
-//var daudio = document.getElementById('Woman of the Hour').querySelectorAll('audio')[0];

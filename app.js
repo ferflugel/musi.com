@@ -1,4 +1,5 @@
 //Inspired by: https://github.com/awicks44/JavaScript-SpotifyAPI
+var imURL;
 
 const APIController = (function() {
 
@@ -126,14 +127,23 @@ const APPController = (function(UICtrl, APICtrl) {
       if (e.target && e.target.matches("li.suggestion")) {
         //Sets album to chosen one from the suggestions dropdown
         chosenIndex = e.target.id;
-        document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
-
+        imURL = searchresults.items[chosenIndex].images[0].url;
+        document.getElementById('image_display').style.display = 'block';
+        document.getElementById('image_display').src = imURL;
+        if(!(searchTerms.length) || !(searchTerms.replace(/\s/g, '').length)) {
+          document.getElementById('image_display').style.display = 'none';
+        }
       	albumID = searchresults.items[chosenIndex].id;
       }
     });
 
-  	document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
-
+  	// document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+    imURL = searchresults.items[chosenIndex].images[0].url;
+    document.getElementById('image_display').style.display = 'block';
+    document.getElementById('image_display').src = imURL;
+    if(!(searchTerms.length) || !(searchTerms.replace(/\s/g, '').length)) {
+      document.getElementById('image_display').style.display = 'none';
+    }
   	albumID = searchresults.items[chosenIndex].id;
   	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
 
@@ -203,15 +213,25 @@ const APPController = (function(UICtrl, APICtrl) {
       if (e.target && e.target.matches("li.suggestion")) {
         //Sets album to chosen one from the suggestions dropdown
         chosenIndex = e.target.id;
-        document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+        // document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
+        imURL = searchresults.items[chosenIndex].images[0].url;
+        document.getElementById('image_display').style.display = 'block';
+        document.getElementById('image_display').src = imURL;
+        if(!(searchTerms.length) || !(searchTerms.replace(/\s/g, '').length)) {
+          document.getElementById('image_display').style.display = 'none';
+        }
       	albumID = searchresults.items[chosenIndex].id;
       }
     });
 
 
     //Gets first or chosen album to be displayed
-    document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
-
+    imURL = searchresults.items[chosenIndex].images[0].url;
+    document.getElementById('image_display').style.display = 'block';
+    document.getElementById('image_display').src = imURL;
+    if(!(searchTerms.length) || !(searchTerms.replace(/\s/g, '').length)) {
+      document.getElementById('image_display').style.display = 'none';
+    }
   	albumID = searchresults.items[chosenIndex].id;
   	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
 

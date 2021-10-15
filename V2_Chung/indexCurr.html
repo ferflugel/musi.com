@@ -44,7 +44,7 @@
       <audio class="audioPreview" autoplay loop></audio>
 
       <!-- Previous song button -->
-      <div class="Button" id="prev" onclick="PrevMusic(this)">
+      <div class="Button" id="prev" onclick="setAudioState();PrevMusic(this)">
         <i class="gg-play-track-prev-o"></i>
         <!-- <i class="arrow left"></i> -->
       </div>
@@ -63,7 +63,7 @@
       </div>
 
       <!-- Next song button -->
-      <div class="Button" id="next" onclick="NextMusic(this)">
+      <div class="Button" id="next" onclick="setAudioState();NextMusic(this)">
         <i class="gg-play-track-next-o"></i>
         <!-- <i class="arrow left"></i> -->
       </div>
