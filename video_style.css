@@ -9,5 +9,6 @@
     z-index: -1;
 
     /* Filters */
-    filter: brightness(0.3) invert(10%);
+    /* filter: brightness(0.15) invert(0%); */
+    filter: brightness(0.3) hue-rotate(250deg);
 }

@@ -57,7 +57,7 @@ function hoveringEffect(id) {
     let elem = document.getElementById(activeMusic + String(i));
     if(temp[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(0,204,125,"+(i+3)*(0.8/temp.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/temp.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }
@@ -70,7 +70,7 @@ function resetCSS() {
     let elem = document.getElementById(activeMusic + String(i));
     if(arr[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(0,204,125,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }
@@ -90,7 +90,7 @@ function updateVal(id) {
     let elem = document.getElementById(activeMusic + String(i));
     if(arr[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(0,204,125,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }

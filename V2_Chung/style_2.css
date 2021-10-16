@@ -2,6 +2,10 @@ body {
   overflow: hidden;
 }
 
+:root {
+  --main: rgba(0,204,125, 0.8);
+}
+
 .musicPage {
   position: relative;
   width: 100vw;
@@ -19,7 +23,7 @@ body {
   position: absolute;
   width: 50px;
   height: 50px;
-  color: rgba(0,204,125, 0.8);
+  color: #FF1694;
   transform: translate(-50%, -50%);
   top: 50%;
 }
@@ -57,7 +61,7 @@ body {
     transform: scale(var(--ggs,1));
     width: 22px;
     height: 22px;
-    border: 1px solid rgba(0,204,125, 0.5);
+    border: 1px solid rgba(255, 22, 146, 0.5);
     border-radius: 20px
 }
 .gg-play-track-next-o::after,
@@ -89,7 +93,7 @@ body {
     transform: scale(var(--ggs,1));
     width: 22px;
     height: 22px;
-    border: 1px solid rgba(0,204,125, 0.5);
+    border: 1px solid rgba(255, 22, 146, 0.5);
     border-radius: 20px
 }
 .gg-play-track-prev-o::after,
@@ -231,7 +235,7 @@ body {
   width: 120px;
   height: 50px;
   line-height: 50px;
-  background-color: green;
+  background-color: #001AC6;
   z-index: 999;
   border-radius: 25px;
   font-family: sans-serif;

@@ -1,6 +1,6 @@
 :root {
-  --primary: #11998e;
-  --secondary: #38ef7d;
+  --primary: #8C52FF;
+  --secondary: #FF1694;
   --white: #fff;
   --gray: #9b9b9b;
 }
@@ -44,7 +44,7 @@
   left: 50%;
   top: 60%;
   box-shadow: 0 4px 8px 0 black;
-  background: linear-gradient(200deg, #139766, #2c3533, #1c5f50);
+  background: linear-gradient(200deg, #0F1854, #8C52FF, #5E17EB, #FF1694);
   background-size: 600% 600%;
   animation: AnimationName 8s ease infinite;
   -webkit-animation: AnimationName 8s ease infinite;
@@ -55,10 +55,12 @@
 #image_display {
   display: none;
     position: absolute;
-    width: 55vh;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 53vh;
     border-radius: 10px;
-    height: 55vh;
-    box-shadow: 0 4px 8px 0 black;
+    height: 53vh;
 }
 
 #searchBox {
@@ -128,12 +130,12 @@
 #btn_submit {
   position: absolute;
   transform: translate(0%, 0%);
-  background-color: rgb(20, 150, 90);
+  background-color: #001AC6; /*rgb(20, 150, 90);*/
+  color: white;
   border: solid transparent;
   border-radius: 10px;
   box-shadow: 2px 4px 9px 0 rgb(10,10,10);
   transition: 0.07s;
-  color: white;
   width: 130px;
   height: 30px;
   margin-left: 10px;
@@ -144,7 +146,7 @@
 
 #btn_submit:active {
   box-shadow: 0 0 0 0 rgb(10,10,10);
-  border: 3px solid rgb(30, 200, 120);
+  border: 3px solid rgb(10,10,10);
   transform: scale(0.96);
 }
 
