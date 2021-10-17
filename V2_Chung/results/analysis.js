@@ -26,7 +26,7 @@ document.getElementById("line3_3").innerHTML = albumName;
 const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 let avg = average(ratings)*2;
 document.getElementById("rating").innerHTML = avg.toFixed(1) + "/10";
-document.getElementById("rating").style.marginLeft = (60 - 6 * avg) + "vw";
+document.getElementById("rating").style.marginRight = (50 - 5 * avg) + "vw";
 
 
 // Sorting the list
