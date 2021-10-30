@@ -1,6 +1,4 @@
-:root {
-  --bg-color: #FF1694;
-}
+@import url("../VisualID.css");
 
 #volumeSlider {
   position: absolute;
@@ -49,21 +47,21 @@
   appearance: none;
   width: 1px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: var(--bg-color);
+  background: var(--pink);
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
   width: 1px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: var(--bg-color);
+  background: var(--pink);
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-webkit-slider-runnable-track {
   height: 24px;
   -webkit-appearance: none;
-  color: var(--bg-color);
+  color: var(--pink);
 }
 
 .slider::-webkit-slider-thumb {
@@ -71,8 +69,8 @@
   -webkit-appearance: none;
   height: 25px;
   cursor: ew-resize;
-  background: var(--bg-color);
-  box-shadow: -200px 0 0 200px var(--bg-color);
+  background: var(--pink);
+  box-shadow: -200px 0 0 200px var(--pink);
 }
 
 

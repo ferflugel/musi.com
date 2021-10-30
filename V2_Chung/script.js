@@ -46,18 +46,32 @@ function updateActive() {
   });
 };
 
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  // return result ? {
+  //   r: parseInt(result[1], 16),
+  //   g: parseInt(result[2], 16),
+  //   b: parseInt(result[3], 16)
+  // } : null;
+
+  return "rgba("+parseInt(result[1], 16)+","+parseInt(result[2], 16)+","+parseInt(result[3], 16)+",";
+}
+
 // Hover effect on rating buttons
+const colorBarColor = getComputedStyle(document.documentElement).getPropertyValue('--rate').split(' ')[1];
 function hoveringEffect(id) {
   let temp = [ 0,   0,   0,   0,   0];
   for(let i = 0; i <= parseInt(id.split(activeMusic)[1]); i++) {
     temp[i] = 1
   }
 
+
   for(let i = 0; i < temp.length; i++) {
     let elem = document.getElementById(activeMusic + String(i));
     if(temp[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/temp.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      // elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/temp.length)+")";  //The (i+3)
+      elem.style.backgroundColor = hexToRgb(colorBarColor)+(i+3)*(0.8/temp.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }
@@ -70,7 +84,7 @@ function resetCSS() {
     let elem = document.getElementById(activeMusic + String(i));
     if(arr[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      elem.style.backgroundColor = hexToRgb(colorBarColor)+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }
@@ -90,7 +104,7 @@ function updateVal(id) {
     let elem = document.getElementById(activeMusic + String(i));
     if(arr[i] == 1) {
       // Changes style if element is clicked (or below the last clicked one)
-      elem.style.backgroundColor = "rgba(94, 23, 235,"+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
+      elem.style.backgroundColor = hexToRgb(colorBarColor)+(i+3)*(0.8/arr.length)+")";  //The (i+3) controls the shift in transparency, while the n/arr.length controls the overall transparency
     } else {
       elem.style.backgroundColor = "rgba(200,200,200,0.3)";
     }

@@ -1,9 +1,4 @@
-:root {
-  --primary: #8C52FF;
-  --secondary: #FF1694;
-  --white: #fff;
-  --gray: #9b9b9b;
-}
+@import url("VisualID.css");
 
 .formContainer {
     position: absolute;
@@ -44,7 +39,7 @@
   left: 50%;
   top: 60%;
   box-shadow: 0 4px 8px 0 black;
-  background: linear-gradient(200deg, #0F1854, #8C52FF, #5E17EB, #FF1694);
+  background: linear-gradient(200deg, var(--color1), var(--color2), var(--color3) , var(--color4));
   background-size: 600% 600%;
   animation: AnimationName 8s ease infinite;
   -webkit-animation: AnimationName 8s ease infinite;
@@ -90,7 +85,7 @@
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, var(--primary),var(--secondary));
+  border-image: linear-gradient(to right, var(--color4),var(--color3));
   border-image-slice: 1;
 }
 
@@ -118,7 +113,7 @@
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: var(--primary);
+    color: var(--color4);
     font-weight:700;
 }
 
@@ -130,7 +125,7 @@
 #btn_submit {
   position: absolute;
   transform: translate(0%, 0%);
-  background-color: #001AC6; /*rgb(20, 150, 90);*/
+  background-color: var(--blue); /*rgb(20, 150, 90);*/
   color: white;
   border: solid transparent;
   border-radius: 10px;

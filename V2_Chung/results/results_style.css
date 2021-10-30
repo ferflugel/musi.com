@@ -1,11 +1,4 @@
-:root {
-  --worst: #8C52FF;
-  --best: #FF1694;
-  --blue: #0038c6;
-  --green: #00FFD9;
-  --pink: #FF1694;
-  --orange: #FF7D00;
-}
+@import url("../../VisualID.css");
 
 body {
   overflow: hidden;
@@ -106,7 +99,7 @@ body {
 #line3{
   font-size: 80px;
   text-align: left;
-  color: #38ef7d;
+  color: var(--green);
   margin: 0.5vh 5vw 1vh;
 }
 
@@ -358,5 +351,3 @@ body {
   /* Filters */
   filter: brightness(0.2);
 }
-
-

@@ -1,0 +1,43 @@
+:root {
+  --worst: #8C52FF;
+  --best: #FF1694;
+  --green: #00FFD9;
+  --pink: #FF1694;
+  --orange: #FF7D00;
+  --gray: #9b9b9b;
+  --white: #ffffff;
+
+
+  /* Gradient Colors */
+  --color1: #FF7D00;
+  --color2: #00FFD9;
+  --color3: #5E17EB;
+  --color4: #FF1694;
+
+  /* Submit button color */
+  --blue: #FF1694;
+
+  /* Prev/Next buttons color */
+  --button: #FF7D00;
+
+  /* Rating bar color */
+  --rate: #00FFD9;
+}
+
+:export {
+  colorBarColor: --green;
+}
+
+.video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    /* Change position to absolute if you don't want it to take up the whole page */
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    /* Filters */
+    filter: brightness(0.3) hue-rotate(250deg);
+}
