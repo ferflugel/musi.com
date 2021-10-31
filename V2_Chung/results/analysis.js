@@ -1,22 +1,10 @@
-/*
-let data_array = data.split('|');
-let musics = [];
-let ratings = [];
-for(let i = 0; i < data_array.length; i++){
-    let tuple = data_array[i].split('_');
-    musics.append(tuple[0]);
-    ratings.append(tuple[1]);
-}
-*/
-
-
 // Creating the list
 var rate = sessionStorage.getItem('evaluations');
 rate = JSON.parse(rate);
 let musics = Object.keys(rate);
 ratings = Object.values(rate);
-let albumName = "graduation";
-
+const imageURL = sessionStorage.getItem('imageURL');
+const albumName = sessionStorage.getItem('albumName');
 
 // Changing the name
 document.getElementById("line3_3").innerHTML = albumName;
@@ -27,6 +15,7 @@ const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 let avg = average(ratings)*2;
 document.getElementById("rating").innerHTML = avg.toFixed(1) + "/10";
 document.getElementById("rating").style.marginRight = (50 - 5 * avg) + "vw";
+document.getElementById('coverImage').src = imageURL;
 
 
 // Sorting the list
@@ -45,3 +34,4 @@ ratedMusics.reverse()
 for(let i = 0; i < 3; i++){
     document.getElementById("bar3_" + (i + 1)).innerHTML = ratedMusics[i][1];
 }
+

@@ -98,9 +98,10 @@ body {
 
 #line3{
   font-size: 80px;
-  text-align: left;
-  color: var(--green);
+  text-align: center;
+  color: black;
   margin: 0.5vh 5vw 1vh;
+  text-transform: uppercase;
 }
 
 .resultsData {
@@ -219,9 +220,10 @@ body {
 
 #line3_3{
   font-size: 80px;
-  text-align: left;
+  text-align: center;
   color: var(--green);
   margin: 0.5vh 0 1vh;
+  text-transform: uppercase;
 }
 
 .resultsDataFinal {

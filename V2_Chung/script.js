@@ -184,5 +184,7 @@ window.addEventListener('click', function() {
 window.addEventListener('load', function() {
   APIController.getCover(token, albumID).then(function(result) {
     document.getElementById('albumCover').src = result.images[0].url;
+    sessionStorage.setItem('imageURL', result.images[0].url);
+    sessionStorage.setItem('albumName', result.name);
   });
 });

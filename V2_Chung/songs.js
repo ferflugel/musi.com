@@ -202,7 +202,7 @@ const APPController = (function(UICtrl, APICtrl) {
 
   albumCoverURL = APICtrl.getCover();
 
-  //Starts the API call
+    //Starts the API call
   return {
     init() {
       beginApp();
@@ -212,7 +212,6 @@ const APPController = (function(UICtrl, APICtrl) {
 })(UIController, APIController);
 
 APPController.init();
-
 
 /*
 // On first file (not sure which one)
