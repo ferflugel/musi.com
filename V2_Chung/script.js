@@ -38,10 +38,10 @@ function updateActive() {
       } finally {}
     } else if (elem.classList.contains("Active")) {
       elem.style.display = 'block';
+      activeMusic = elem.getAttribute('id');
       try {
         elem.querySelectorAll('audio')[0].play();
       } finally {}
-      activeMusic = elem.getAttribute('id');
     }
   });
 };
@@ -111,13 +111,12 @@ function updateVal(id) {
   }
 
   //Sums 1's in the arr to get rating
-  const sum = arr.reduce(add,0); // with initial value to avoid when the array is empty
   function add(accumulator, a) {
     return accumulator + a;
   }
+  const sum = arr.reduce(add,0); // with initial value to avoid when the array is empty
   //Stores rating on dictionary
   ratings[activeMusic] = sum;
-
 };
 
 //Handles negative indexes on arrays
@@ -159,8 +158,6 @@ function NextMusic() {
   let grade = ratings[proxy[index]];
   let el = document.getElementById(proxy[index] + String(grade-1));
   el.click();
-
-
 }
 
 //Sends data to the next page
@@ -185,6 +182,6 @@ window.addEventListener('load', function() {
   APIController.getCover(token, albumID).then(function(result) {
     document.getElementById('albumCover').src = result.images[0].url;
     sessionStorage.setItem('imageURL', result.images[0].url);
-    sessionStorage.setItem('albumName', result.name);
+    sessionStorage.setItem('albumName', shortenName(result.name));
   });
 });

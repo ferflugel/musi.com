@@ -3,6 +3,15 @@ albumID = params.get('albumId');
 var dt, btn, active, position;
 var albumCoverURL;
 
+function shortenName(string) {
+  var end = string.indexOf('(');
+  var final = string.substr(0, end).trim();
+  if(final.length == 0) {
+    return string
+  } else {
+    return final
+  }
+}
 
 //Iteratively create music pages with album songs and data
 function createPage(musicRef, active) {
@@ -19,7 +28,7 @@ function createPage(musicRef, active) {
 
   //Modify div with gathered data
   cln.querySelectorAll('audio')[0].src = audioPrev;
-  cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicName')[0].innerHTML = musicName;
+  cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicName')[0].innerHTML = shortenName(musicName);
   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.musicArtist')[0].innerHTML = artist;
   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.rateButton').forEach((item, i) => {
     item.id = musicName + item.id.split('Clone')[1];

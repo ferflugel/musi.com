@@ -245,6 +245,7 @@ body {
   width: 25vw;
   display: inline;
   text-align: left;
+  margin-top: 50px;
   color: white;
 }
 
@@ -371,8 +372,13 @@ body {
 .resultsTextFinal {
   position: absolute;
   transform: translate(-50%, -50%);
+  width: 350px;
   left: 180%;
   top: 50%;
+}
+
+.resultsTextFinal p {
+  white-space: nowrap;
 }
 
 #coverImage {
