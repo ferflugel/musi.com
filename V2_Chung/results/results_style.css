@@ -1,5 +1,9 @@
 @import url("../../VisualID.css");
 
+:root {
+  --bar-height: 2vh;
+}
+
 body {
   overflow: hidden;
   background: black;
@@ -121,7 +125,7 @@ body {
   border-radius: 10px;
   padding: 25px 0;
   border: 0;
-  height: 12px;
+  height: var(--bar-height);
   text-indent: 1.5vw;
 }
 
@@ -400,6 +404,16 @@ body {
   margin-right: 10vw;
   padding-right: 1.5vh;
   color: white;
+}
+
+#rating_text {
+  position: absolute;
+  height: var(--bar-height);
+  transform: translate(-50%, -50%);
+  top: 75.5%;
+  right: 0;
+  font-size: xx-large;
+  margin: 0;
 }
 
 #video2 {

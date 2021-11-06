@@ -54,8 +54,14 @@ while(state) {
 // Computing the average
 const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 let avg = average(ratings)*2;
-document.getElementById("rating").innerHTML = avg.toFixed(1) + "/10";
+document.getElementById("rating_text").innerHTML = avg.toFixed(1) + "/10";
 document.getElementById("rating").style.marginRight = (50 - 5 * avg) + "vw";
+const marginRight = (40 - 5 * avg);
+if (marginRight >= -3) {
+    document.getElementById("rating_text").style.marginRight = marginRight + "vw";
+} else {
+    document.getElementById("rating_text").style.marginRight = '-10' + "vw";
+}
 
 
 
