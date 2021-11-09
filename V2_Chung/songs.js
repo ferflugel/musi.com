@@ -145,12 +145,13 @@ const APPController = (function(UICtrl, APICtrl) {
         //Adds play/pause on musics
         btn = document.getElementById('playPause');
         position = 0;
+        let volSlider = document.getElementById('volRange');
 
         btn.addEventListener('click', function() {
           active = document.getElementsByClassName('Active')[0];
           if (!(btn.classList.contains("paused"))) {
             active.getElementsByTagName('audio')[0].currentTime = position;
-            active.getElementsByTagName('audio')[0].volume = 1;
+            active.getElementsByTagName('audio')[0].volume = ((parseInt(volSlider.value)-1)/100);
             btn.classList.add("paused");
           } else {
             position = active.getElementsByTagName('audio')[0].currentTime;
@@ -169,45 +170,6 @@ const APPController = (function(UICtrl, APICtrl) {
 
   setVolume();
 
-
-  //Not working
-  //  Fades audio in and out
-  // var audioElements = document.getElementsByClassName("audioPreview");
-  // console.log(audioElements);
-  // for(var i = 0;  i < audioElements.length; i++) {
-  //   elem = audioElements[i];
-  //   console.log(i);
-  //   elem.addEventListener('timeupdate', function() {
-  //     var fadeOut = elem.duration-2;
-  //     setInterval(function () {
-  //
-  //         // Only fade if past the fade out point or not at zero already
-  //         if ((elem.currentTime >= fadeOut) && (elem.volume != 0.0)) {
-  //             elem.volume -= 0.1;
-  //         }
-  //         // When volume at zero stop all the intervalling
-  //         if (elem.volume === 0.0) {
-  //             clearInterval(fadeAudio);
-  //         }
-  //     }, 200);
-  //   });
-  //
-  //   elem.addEventListener('ended', function() {
-  //     elem.currentTime = 0;
-  //
-  //     setInterval(function () {
-  //
-  //         // Only fade if past the fade in point
-  //         if ((elem.currentTime >= 0) && (elem.volume <= 1.0)) {
-  //             elem.volume += 0.1;
-  //         }
-  //         // When volume at 1 stop all the intervalling
-  //         if (elem.volume === 1.0) {
-  //             clearInterval(fadeAudio);
-  //         }
-  //     }, 200);
-  //   });
-  // };
 
   albumCoverURL = APICtrl.getCover();
 

@@ -117,7 +117,6 @@ const APPController = (function(UICtrl, APICtrl) {
   	console.log(token);
 
   	var searchTerms = document.getElementById('searchBox').value;
-  	console.log(searchTerms);
 
   	const searchresults = await APICtrl.searchforalbumsmethod(token, searchTerms);
 
@@ -137,7 +136,6 @@ const APPController = (function(UICtrl, APICtrl) {
       }
     });
 
-  	// document.getElementById('image_display').src = searchresults.items[chosenIndex].images[0].url;
     imURL = searchresults.items[chosenIndex].images[0].url;
     document.getElementById('image_display').style.display = 'block';
     document.getElementById('image_display').src = imURL;
@@ -222,6 +220,7 @@ const APPController = (function(UICtrl, APICtrl) {
         }
       	albumID = searchresults.items[chosenIndex].id;
       }
+      document.getElementById('searchBox').value = searchresults.items[chosenIndex].name;
     });
 
 

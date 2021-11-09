@@ -21,8 +21,8 @@ function shortenName(string) {
 function trimName(string) {
   var str = shortenName(string);
 
-  if(str.length > 23) {
-    str = str.substr(0, 20)+"...";
+  if(str.length > 20) {
+    str = str.substr(0, 17)+"...";
   }
   return str;
 }
@@ -46,7 +46,6 @@ const resizeToFit = () => {
     state = 0;
   }
 }
-
 while(state) {
   resizeToFit();
 }
@@ -54,13 +53,20 @@ while(state) {
 // Computing the average
 const average = list => list.reduce((prev, curr) => prev + curr) / list.length;
 let avg = average(ratings)*2;
+avg = 1;
 document.getElementById("rating_text").innerHTML = avg.toFixed(1) + "/10";
 document.getElementById("rating").style.marginRight = (50 - 5 * avg) + "vw";
+
 const marginRight = (40 - 5 * avg);
-if (marginRight >= -3) {
+if (marginRight >= -1) {
     document.getElementById("rating_text").style.marginRight = marginRight + "vw";
 } else {
-    document.getElementById("rating_text").style.marginRight = '-10' + "vw";
+    //margins were affecting the position at avg=10, so this fixes it
+    if(avg == 10) {
+      document.getElementById("rating_text").style.marginRight = "-11.5vw";
+    } else {
+      document.getElementById("rating_text").style.marginRight = "-10vw";
+    }
 }
 
 
