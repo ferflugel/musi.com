@@ -233,7 +233,7 @@ body {
 .resultsDataFinal {
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 80vw;
+  left: 75vw;
   top: 29vh;
   width: 25vw;
   display: inline;
@@ -244,7 +244,7 @@ body {
 .resultsDataFinal2 {
   position: absolute;
   transform: translate(-50%, -50%);
-  left: 80vw;
+  left: 75vw;
   top: 65vh;
   width: 25vw;
   display: inline;
@@ -414,6 +414,33 @@ body {
   right: -4%;
   font-size: xx-large;
   margin: 0;
+}
+
+.Home {
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  transform: translate(0%, -50%);
+  top: 50%;
+  right: -6vw;
+  border-top-left-radius: 6vw;
+  border-bottom-left-radius: 6vw;
+  background: var(--green);
+  cursor: pointer;
+}
+
+.Home:hover i {
+  color: white;
+}
+
+.Home i {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 25%;
+  color: black;
+  font-size: 2.5vw;
+  transition: color 0.15s ease;
 }
 
 #video2 {

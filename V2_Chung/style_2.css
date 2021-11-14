@@ -32,9 +32,11 @@ body {
 
 #prev {
   left: 3%;
+  cursor: pointer;
 }
 #next {
   left: 96.5%;
+  cursor: pointer;
 }
 
 .arrow {
@@ -237,12 +239,15 @@ body {
   width: 120px;
   height: 50px;
   line-height: 50px;
-  background-color: var(--blue);
+
+  background-color: rgba(60, 60, 60, 0.6);
   z-index: 999;
   border-radius: 25px;
   font-family: sans-serif;
   font-weight: 0;
   font-size: 17px;
-  color: white;
+  color: rgba(100, 100, 100, 0.8);
   text-align: center;
+
+  cursor: pointer;
 }

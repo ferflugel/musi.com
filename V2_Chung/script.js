@@ -28,24 +28,6 @@ function hideElements() {
   });
 };
 
-//Updates the active music page
-function updateActive() {
-  Array.prototype.forEach.call(p, elem => {
-    if(!(elem.classList.contains("Active"))) {
-      elem.style.display = 'none';
-      try {
-        elem.querySelectorAll('audio')[0].pause();
-      } finally {}
-    } else if (elem.classList.contains("Active")) {
-      elem.style.display = 'block';
-      activeMusic = elem.getAttribute('id');
-      try {
-        elem.querySelectorAll('audio')[0].play();
-      } finally {}
-    }
-  });
-};
-
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   // return result ? {
@@ -56,6 +38,34 @@ function hexToRgb(hex) {
 
   return "rgba("+parseInt(result[1], 16)+","+parseInt(result[2], 16)+","+parseInt(result[3], 16)+",";
 }
+
+//Updates the active music page
+function updateActive() {
+  Array.prototype.forEach.call(p, elem => {
+    if(!(elem.classList.contains("Active"))) {
+      elem.style.display = 'none';
+      try {
+        elem.querySelectorAll('audio')[0].pause();
+      } finally {}
+
+    } else if (elem.classList.contains("Active")) {
+      elem.style.display = 'block';
+      activeMusic = elem.getAttribute('id');
+
+      //Changes submit btn color
+      if(String(activeMusic) == String(document.getElementsByClassName('musicPage')[0].id)) {
+        const color = getComputedStyle(document.documentElement).getPropertyValue('--pink').split(' ')[1];
+        document.getElementsByClassName('Finish')[0].style.backgroundColor = hexToRgb(color)+'1)';
+        document.getElementsByClassName('Finish')[0].style.color = 'white';
+      }
+
+      try {
+        elem.querySelectorAll('audio')[0].play();
+      } finally {}
+    }
+  });
+};
+
 
 // Hover effect on rating buttons
 const colorBarColor = getComputedStyle(document.documentElement).getPropertyValue('--rate').split(' ')[1];
