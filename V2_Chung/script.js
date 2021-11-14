@@ -69,10 +69,11 @@ function updateActive() {
 
 // Hover effect on rating buttons
 const colorBarColor = getComputedStyle(document.documentElement).getPropertyValue('--rate').split(' ')[1];
+let temp = [ 0,   0,   0,   0,   0];
 function hoveringEffect(id) {
   let temp = [ 0,   0,   0,   0,   0];
   for(let i = 0; i <= parseInt(id.split(activeMusic)[1]); i++) {
-    temp[i] = 1
+    temp[i] = 1;
   }
 
 
@@ -148,6 +149,7 @@ function PrevMusic() {
   elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))-1;
   document.getElementById(proxy[index]).classList.add("Active");
+  arr = [0, 0, 0, 0, 0];
   updateActive();
 
   //Retrieves stored ratings
@@ -162,6 +164,7 @@ function NextMusic() {
   elem.className = "musicPage";
   var index = musics.indexOf(elem.getAttribute('id'))+1;
   document.getElementById(proxy[index]).classList.add("Active");
+  arr = [0, 0, 0, 0, 0];
   updateActive();
 
   //Retrieves stored ratings

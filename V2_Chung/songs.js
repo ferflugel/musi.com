@@ -33,7 +33,7 @@ function createPage(musicRef, active) {
   cln.querySelectorAll('div.colorBar')[0].querySelectorAll('.rateButton').forEach((item, i) => {
     item.id = musicName + item.id.split('Clone')[1];
     document.getElementById(item.id).setAttribute('onmouseover', 'hoveringEffect("' + item.id + '")');
-    document.getElementById(item.id).setAttribute('onclick', "updateVal('" + item.id + "')");
+    document.getElementById(item.id).setAttribute('onclick', 'updateVal("' + item.id + '")');
   });
   cln.id = musicName;
   cln.className = "musicPage";

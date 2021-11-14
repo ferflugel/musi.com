@@ -33,6 +33,8 @@
     height: 100vh;
     object-fit: cover;
     position: fixed;
+    margin: 0;
+    padding: 0;
     /* Change position to absolute if you don't want it to take up the whole page */
     left: 0;
     top: 0;
