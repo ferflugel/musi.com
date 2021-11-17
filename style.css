@@ -1,5 +1,24 @@
 @import url("VisualID.css");
 
+#logoContainer {
+  position: absolute;
+  left: 2vw;
+  top: -2vw;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 5vw;
+  overflow: hidden;
+  /* box-shadow: 0px 0px 10px 10px white; */
+}
+
+#Logo {
+  width: 20vw;
+  height: 20vw;
+  margin: -5vw 0 0 -5vw;
+
+}
+
+
 .formContainer {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -29,6 +48,7 @@
     50%{background-position:40% 100%}
     100%{background-position:61% 0%}
 }
+
 
 #imDiv {
   position: absolute;

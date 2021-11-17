@@ -7,11 +7,15 @@
     <title>Search</title>
 </head>
 <body>
+  <div id="logoContainer">
+    <img id="Logo" src="musicom.svg" alt="">
+  </div>
+
   <div id="imDiv">
     <img id="image_display" alt="album cover" onerror='this.style.display = "none"'>
   </div>
 
-  <video class="video" playsinline muted autoplay loop>
+  <video class="video" playsinline muted autoplay loop disablePictureInPicture >
     <source src="background.mp4" type="video/mp4">
   </video>
 
