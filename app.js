@@ -27,7 +27,7 @@ const APIController = (function() {
   	}
   	const result = await fetch(`https://api.spotify.com/v1/search?q=album:${formattedstr}&type=album`, {
               method: 'GET',
-              headers: { 'Authorization' : 'Bearer ' + token}
+              headers: { 'Authorization' : 'Bearer ' + token},
     });
 
     const data = await result.json();
@@ -141,9 +141,6 @@ const APPController = (function(UICtrl, APICtrl) {
 
   	console.log(">>>>>>>>>>>>>>>>>>>SEARCHED FOR:");
   	console.log(searchTerms);
-
-
-
 
     document.getElementById('SubmitForm').click();
     });
