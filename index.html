@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="VisualID.css">
-    <title>Search</title>
+    <title>musi.com</title>
 </head>
 <body>
   <div id="logoContainer">
-    <img id="Logo" src="musicom.svg" alt="">
+    <img id="Logo" src="musicom.svg" alt="Logo">
   </div>
 
   <div id="imDiv">
@@ -28,14 +28,20 @@
         <input type="text" name="albumId" id="albumIdTAG" style="display:none;">
         <input type="text" placeholder="Album Name" id='searchBox' autocomplete="off">
 
-        <label for="album" class="form_label">Album</label>
+        <label for="album" class="form_label">Álbum</label>
         <input type="submit" value="Submit" id='SubmitForm' style="display: none;">
-        <button type="submit" id="btn_submit" class="btn btn-success">Search</button>
+        <button type="submit" id="btn_submit" class="btn btn-success">Buscar</button>
 
       </form>
 
   </div>
   <div id="result" style="display:none;"></div>
+
+  <!-- Spotify copyright -->
+  <div id="copyright">
+    <p>Desenvolvido por <i>ProCubo</i> usando a Web API do <i>Spotify</i></p>
+    <img src="Spotify_Logo_CMYK_White.png" alt="Spotify logo">
+  </div>
 
   <script src="app.js" type="text/javascript"></script>
   <script src="dynCSS.js" type="text/javascript"></script>

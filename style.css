@@ -167,7 +167,7 @@
 
 /* demo */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: Trebuchet MS, Calibri, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,4 +199,29 @@ body {
 }
 #result ul li:hover {
   background: var(--worst);
+}
+
+/* Spotify Copyright */
+#copyright {
+  position: absolute;
+  width: 21vw;
+  transform: translate(-50%, -50%);
+  top: 91%;
+  left: 12%;
+}
+
+#copyright p {
+  width: 13vw;
+  position: absolute;
+  left: 0px;
+  font-size: 2vh;
+  color: gray;
+}
+
+#copyright img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  right: 0vw;
+  top: 4vh;
 }
