@@ -136,13 +136,6 @@ const APPController = (function(UICtrl, APICtrl) {
       }
     });
 
-    imURL = searchresults.items[chosenIndex].images[0].url;
-    document.getElementById('image_display').style.display = 'block';
-    document.getElementById('image_display').src = imURL;
-    if(!(searchTerms.length) || !(searchTerms.replace(/\s/g, '').length)) {
-      document.getElementById('image_display').style.display = 'none';
-    }
-  	albumID = searchresults.items[chosenIndex].id;
   	songsinalbum = await APICtrl.getSongsOnAlbumMethod(token, albumID);
 
 
